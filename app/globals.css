@@ -1,26 +1,183 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
+/* Os temas serão selecionados pelo atributo data-theme no elemento html. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Paleta crua: só valores, sem papel. Os papéis ficam nos tokens semânticos. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --palette-light: #f6f6f6;
+  --palette-ink: #182633;
+  --palette-navy: #213445;
+  --palette-navy-light: #2e4e6b;
+  --palette-orange: #f7660b;
+  --palette-orange-light: #ff8a3d;
+  --palette-orange-dark: #e0561a;
+  --palette-peach: #fcc19c;
+  --palette-green: #056e4f;
+  --palette-cyan: #00adc8;
+  --palette-gray: #7b7b7b;
+}
+
+/* Tokens com o mesmo valor nos dois temas. */
+:root {
+  --background-accent: var(--palette-orange);
+  --surface: var(--palette-navy);
+  --detail: var(--palette-peach);
+
+  --card-green: var(--palette-green);
+  --card-orange: var(--palette-orange);
+  --card-cyan: var(--palette-cyan);
+
+  --foreground-accent: var(--palette-orange);
+  --foreground-light: var(--palette-light);
+  --foreground-muted: var(--palette-gray);
+}
+
+/* Tokens que os componentes do shadcn/ui esperam, ligados à nossa paleta.
+   Só existem os que os componentes em uso consomem; ao adicionar outro
+   componente, conferir se ele precisa de mais algum. */
+:root {
+  --popover-foreground: var(--foreground-light);
+  --muted-foreground: var(--foreground-muted);
+  --border: rgb(255 255 255 / 0.19);
+  --ring: var(--detail);
+}
+
+/* Tema claro (padrão). */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --background: var(--palette-light);
+  --foreground: var(--palette-ink);
+
+  --button-from: var(--palette-navy-light);
+  --button-to: var(--palette-ink);
+
+  --popover: var(--palette-light);
+  --accent: var(--palette-gray);
+  --accent-foreground: var(--palette-light);
+
+  --menubar-background: var(--palette-ink);
+  --menubar-border: transparent;
+  --menubar-shadow: 0 0 0 0 transparent;
+  --menubar-blur: 0px;
+}
+
+/* Tema escuro. Só redefine o que muda por tema. */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: var(--palette-ink);
+  --foreground: var(--palette-light);
+
+  --button-from: var(--palette-orange-light);
+  --button-to: var(--palette-orange-dark);
+
+  --popover: var(--surface);
+  --accent: rgb(255 255 255 / 0.08);
+  --accent-foreground: var(--foreground-light);
+
+  --menubar-background: rgb(255 255 255 / 0.07);
+  --menubar-border: rgb(255 255 255 / 0.19);
+  --menubar-shadow: 0 8px 6.8px rgb(0 0 0 / 0.08);
+  --menubar-blur: 13.7px;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-accent: var(--background-accent);
+  --color-surface: var(--surface);
+  --color-detail: var(--detail);
+  --color-card-green: var(--card-green);
+  --color-card-orange: var(--card-orange);
+  --color-card-cyan: var(--card-cyan);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-accent: var(--foreground-accent);
+  --color-foreground-light: var(--foreground-light);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-button-from: var(--button-from);
+  --color-button-to: var(--button-to);
+  --color-menubar: var(--menubar-background);
+  --color-menubar-border: var(--menubar-border);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    var(--font-chakra-petch), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-menu-item: 5px;
+  --radius-card: 20px;
+  --radius-card-lg: 35px;
+  --radius-button: 39px;
+  --radius-menu: 65px;
+
+  --container-content: 1208px;
+
+  --shadow-menubar: var(--menubar-shadow);
+  --blur-menubar: var(--menubar-blur);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Estilos de texto. Cada classe aplica família, tamanho, peso, linha e espaçamento. */
+@utility text-headline {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@utility text-h1 {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+@utility text-subheadline {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+@utility text-body {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+@utility text-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+@utility text-button {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
