@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { ContactButton, GradientButton } from "@/components/link-button";
-import { MenuBar } from "@/components/menu-bar";
 import { MenuItem } from "@/components/menu-item";
 import { TokenSwatch } from "@/components/token-swatch";
 
@@ -176,10 +175,8 @@ function ArrowIcon() {
 
 export default function DesignSystemPage() {
   return (
-    <>
-      <MenuBar />
-
-      <main className="mx-auto flex w-full max-w-content flex-1 flex-col gap-24 px-4 pt-40 pb-32">
+    <div className="flex flex-1 flex-col pt-menubar">
+      <div className="mx-auto flex w-full max-w-content flex-1 flex-col gap-24 pt-10 pb-32">
         <header className="flex flex-col gap-6">
           <h1 className="text-headline text-foreground">Design System</h1>
           <p className="text-subheadline max-w-3xl text-foreground-muted">
@@ -419,7 +416,7 @@ export default function DesignSystemPage() {
             <p className="text-subtitle">bg-surface · #213445</p>
           </div>
         </Section>
-      </main>
-    </>
+      </div>
+    </div>
   );
 }
