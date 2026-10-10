@@ -33,6 +33,11 @@
   --foreground-accent: var(--palette-orange);
   --foreground-light: var(--palette-light);
   --foreground-muted: var(--palette-gray);
+
+  --page-gutter: 1rem;
+
+  /* Fundo translúcido do botão de hambúrguer do menu bar, igual nos dois temas. */
+  --menubutton-background: rgb(255 255 255 / 0.1);
 }
 
 /* Tokens que os componentes do shadcn/ui esperam, ligados à nossa paleta.
@@ -56,6 +61,9 @@
   --button-from: var(--palette-navy-light);
   --button-to: var(--palette-ink);
 
+  /* Rede de fundo da home: #ececec a 59% no claro, #223140 a 20% no escuro. */
+  --hero-network: url("/backgrounds/redes-bg-light.svg");
+
   --popover: var(--palette-light);
   --accent: var(--palette-gray);
   --accent-foreground: var(--palette-light);
@@ -75,6 +83,8 @@
 
   --button-from: var(--palette-orange-light);
   --button-to: var(--palette-orange-dark);
+
+  --hero-network: url("/backgrounds/redes-bg.svg");
 
   --popover: var(--surface);
   --accent: rgb(255 255 255 / 0.08);
@@ -102,6 +112,7 @@
   --color-button-to: var(--button-to);
   --color-menubar: var(--menubar-background);
   --color-menubar-border: var(--menubar-border);
+  --color-menubutton: var(--menubutton-background);
 
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
@@ -122,6 +133,11 @@
   --radius-menu: 65px;
 
   --container-content: 1208px;
+
+  /* Espaço no topo para o conteúdo começar abaixo do menu bar fixo: 24px de
+     afastamento (top-6) + ~69px de altura da barra + 24px de respiro. Se a
+     altura ou o afastamento do menu bar mudarem, ajustar aqui. */
+  --spacing-menubar: 7.5rem;
 
   --shadow-menubar: var(--menubar-shadow);
   --blur-menubar: var(--menubar-blur);
