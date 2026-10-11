@@ -3,7 +3,9 @@ import type { ReactNode } from "react";
 
 import { ContactButton, GradientButton } from "@/components/link-button";
 import { MenuItem } from "@/components/menu-item";
+import { ServiceCard } from "@/components/service-card";
 import { TokenSwatch } from "@/components/token-swatch";
+import { serviceCards } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Design System",
@@ -383,7 +385,7 @@ export default function DesignSystemPage() {
         <Section
           id="cards"
           title="Cards"
-          description="Cores e raios de card. O conteúdo e o tamanho do card de destaque ainda não fazem parte do sistema."
+          description="Cores e raios de card e o card de destaque de serviço, de tamanho fixo para telas grandes. A versão responsiva ainda não faz parte do sistema."
         >
           <div className="grid gap-6 text-foreground-light md:grid-cols-3">
             <div className="flex h-40 flex-col justify-end rounded-card bg-card-orange p-6">
@@ -415,6 +417,18 @@ export default function DesignSystemPage() {
             <p className="text-h1">Seção em superfície</p>
             <p className="text-subtitle">bg-surface · #213445</p>
           </div>
+
+          <Group title="Card de serviço">
+            <div className="overflow-x-auto">
+              {serviceCards.map(({ id, ...card }) => (
+                <ServiceCard key={id} {...card} />
+              ))}
+            </div>
+            <Caption>
+              1080 x 435 · raio 35px · base, fundo e cor do número por card ·
+              informações em bloco de 811 x 232, a 40px da base
+            </Caption>
+          </Group>
         </Section>
       </div>
     </div>
