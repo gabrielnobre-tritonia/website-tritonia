@@ -5,7 +5,7 @@ import type { ServiceCardData } from "@/lib/constants";
 
 type ServiceCardProps = Omit<ServiceCardData, "id">;
 
-/** Card de destaque de serviço, de tamanho fixo (1080 x 435). Só apresenta: todo o conteúdo vem por props. */
+/** Card de destaque de serviço, de tamanho fixo (1080 x 380). Só apresenta: todo o conteúdo vem por props. */
 export function ServiceCard({
   baseColor,
   background,
@@ -18,7 +18,7 @@ export function ServiceCard({
 }: ServiceCardProps) {
   return (
     <article
-      className="relative h-[435px] w-[1080px] shrink-0 overflow-hidden rounded-card-lg text-foreground-light"
+      className="relative h-[380px] w-[1100px] shrink-0 overflow-hidden rounded-card-lg text-foreground-light"
       style={{ backgroundColor: baseColor }}
     >
       <Image

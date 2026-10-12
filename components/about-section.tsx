@@ -1,26 +1,6 @@
 import { CircuitLine } from "@/components/circuit-line";
 import { aboutStats } from "@/lib/constants";
 
-/**
- * Seção "Sobre Nós" da home.
- *
- * Camadas: vem depois da faixa laranja fixa (`HomeStatement`, `sticky z-0`),
- * então é opaca, `relative z-10` e em largura total (o layout `(root)` não
- * tem padding lateral), para cobri-la sem deixar tiras laterais. O
- * `overflow-hidden` fica só aqui:
- * só um ancestral com `overflow` quebraria o `sticky` da faixa.
- *
- * Logo e elipse ao fundo usam `cqw` (1cqw = 1% da largura da seção, que é o
- * container por `container-type: inline-size`). A partir de `lg` são
- * proporcionais ao frame do Figma de 1440px (em 1440px dão as medidas dele).
- * Abaixo de `lg` ganham um tamanho maior por breakpoint (base < 640px, `sm` de
- * 640px a 1023px), porque a escala proporcional os deixaria pequenos demais em
- * telas estreitas. Eles ficam antes do conteúdo no DOM e nunca como ancestrais
- * dele, senão o desfoque do card não enxergaria o que está atrás.
- *
- * `cqw` mede a caixa de conteúdo do container, então a seção não pode ter
- * padding horizontal: o padding lateral fica no wrapper do conteúdo.
- */
 export function AboutSection() {
   return (
     <section
@@ -59,7 +39,7 @@ export function AboutSection() {
           />
         </div>
 
-        <div className="relative flex w-full max-w-content flex-col gap-10 py-menubar">
+        <div className="relative flex w-full max-w-content flex-col gap-5 py-menubar">
           <p className="font-display text-[14px] font-medium text-foreground">
             SOBRE NÓS
           </p>
