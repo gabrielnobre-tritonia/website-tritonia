@@ -307,6 +307,41 @@ body {
   }
 }
 
+/* Pilha de cards da seção "Soluções" (components/solutions-card-stack.tsx).
+   Só vale com `data-mode="stack"` no wrapper, que o componente põe depois da
+   montagem quando a janela é larga e alta o bastante e não há movimento
+   reduzido; sem ele, os cards ficam em coluna, no fluxo normal. O wrapper tem
+   a altura do percurso de scroll (`--stack-stage-h` + `--stack-travel`, em px,
+   escritas pelo componente), a área fixa (`sticky`) fica a `--stack-top` do
+   topo da janela e os cards viram camadas no mesmo lugar: cada um sobe por
+   `--y` (px, escrito a cada quadro de scroll), e o último, mais abaixo no
+   DOM, fica à frente. Só `transform`. Ajustes (topo, faixa azul, folga de
+   leitura, altura e largura mínimas) são as constantes no topo do componente. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-stack][data-mode="stack"] {
+    height: calc(var(--stack-stage-h) + var(--stack-travel));
+  }
+
+  [data-stack][data-mode="stack"] [data-stack-stage] {
+    position: sticky;
+    top: var(--stack-top);
+  }
+
+  [data-stack][data-mode="stack"] [data-stack-cards] {
+    position: relative;
+    display: block;
+    height: 380px;
+  }
+
+  [data-stack][data-mode="stack"] [data-stack-layer] {
+    position: absolute;
+    top: 0;
+    inset-inline: 0;
+    transform: translate3d(0, var(--y, 0px), 0);
+    will-change: transform;
+  }
+}
+
 /* Luz dos circuitos (components/circuit-line.tsx). O caminho da luz tem
    `pathLength="100"`, então o comprimento da luz e o deslocamento são em % do
    trajeto. Com o traço `<L> 100` há uma luz só no trajeto; o deslocamento `L`
