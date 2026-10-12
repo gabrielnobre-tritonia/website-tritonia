@@ -51,3 +51,44 @@ export const serviceCards: ServiceCardData[] = [
     ],
   },
 ];
+
+export type AboutStat = {
+  id: string;
+  title: string;
+  subtitle: string;
+  /** Cor do título, como valor CSS direto (não é token da paleta). */
+  color: string;
+};
+
+export const aboutStats: AboutStat[] = [
+  {
+    id: "anos",
+    title: "+5 anos",
+    subtitle: "de engenharia aplicada a operações",
+    color: "var(--foreground-accent)",
+  },
+  {
+    id: "sistemas",
+    title: "+4",
+    subtitle: "sistemas em produção",
+    color: "#00adc8",
+  },
+  {
+    id: "eventos",
+    title: "+100 mil",
+    subtitle: "eventos/registros processados",
+    color: "#a17bf4",
+  },
+  {
+    id: "instituicoes",
+    title: "+5",
+    subtitle: "instituições atendidas",
+    color: "#0bc28c",
+  },
+  {
+    id: "reducao-de-erros",
+    title: "+15%",
+    subtitle: "de redução de erros em processos",
+    color: "var(--foreground-light)",
+  },
+];
