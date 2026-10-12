@@ -143,6 +143,17 @@
   --blur-menubar: var(--menubar-blur);
 }
 
+/* Pontos de corte além dos padrões do Tailwind (sm 640, md 768, lg 1024, xl 1280).
+   Todos em rem, como os padrões: o Tailwind ordena as variantes `max-*` pelo
+   valor, e misturar rem com px (`max-[480px]`) inverte a ordem. Usados pelo
+   título da faixa laranja da home (components/home-statement.tsx). */
+@theme {
+  --breakpoint-3xs: 22.5rem; /* 360px */
+  --breakpoint-2xs: 25rem; /* 400px */
+  --breakpoint-xs: 30rem; /* 480px */
+  --breakpoint-wide: 87.5rem; /* 1400px */
+}
+
 /* Estilos de texto. Cada classe aplica família, tamanho, peso, linha e espaçamento. */
 @utility text-headline {
   font-family: var(--font-display);
@@ -196,4 +207,86 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* Entrada do título da faixa laranja da home (components/home-statement.tsx).
+   Ajustes do movimento: duração, atraso, escala inicial e curva, aqui. O ponto
+   de disparo fica no topo de home-statement.tsx. A curva é a easeInOutBack
+   (efeito chicote): os pontos de controle ficam fora de 0 a 1 em y, então a
+   escala recua um pouco no começo, passa de 1 (~5%) perto do fim e volta a 1.
+   Tempos: a animação toda dura 2000ms; a linha 1 vai de 0 a 765ms e a linha 2,
+   de 0 a 2000ms (atraso 0 nas duas). Dois limites da curva: (1) ela recua
+   abaixo do valor inicial no começo (progresso mínimo de -0,058), então
+   `--statement-scale-from` não pode ser menor que ~0.055, senão a escala fica
+   negativa e o texto espelha (com 0.06, o menor valor com folga, a escala
+   mínima no recuo é 0.005, quase um ponto); (2) em ~1440px a primeira linha ocupa 1348px, e o avanço máximo sem
+   passar da borda da janela é ~6,8%, então não aumente os pontos de controle
+   (a easeInOutBack padrão, -0.6 e 1.6, avança 8,9% e corta).
+   Opacidade: as duas linhas começam invisíveis e no menor tamanho. A linha 2 é
+   a mesma animação da linha 1, só com duração maior: o fade é uma fração da
+   duração de cada linha (começa em 19,6% e dura 32,7% dela, ou seja, 150ms e
+   250ms nos 765ms da linha 1, e 392ms e 654ms nos 2000ms da linha 2). */
+:root {
+  --statement-duration-1: 765ms;
+  --statement-duration-2: 765ms;
+  --statement-delay: 150ms;
+  --statement-fade-start: 0.196;
+  --statement-fade-span: 0.327;
+  --statement-scale-from: 0.06;
+  --statement-ease: cubic-bezier(0.7, -0.4, 0.4, 1.4);
+}
+
+@keyframes statement-line-scale {
+  from {
+    transform: scale(var(--statement-scale-from));
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes statement-line-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Sem `data-state` (servidor, sem JavaScript) e com movimento reduzido, as duas
+   linhas ficam visíveis no tamanho final. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-state="pending"] [data-line],
+  [data-state="playing"] [data-line] {
+    transform-origin: center;
+  }
+
+  [data-state="pending"] [data-line] {
+    opacity: 0;
+    transform: scale(var(--statement-scale-from));
+  }
+
+  [data-state="playing"] [data-line] {
+    animation:
+      statement-line-scale var(--statement-duration) var(--statement-ease)
+        var(--statement-line-delay) both,
+      statement-line-fade
+        calc(var(--statement-duration) * var(--statement-fade-span)) linear
+        calc(
+          var(--statement-line-delay) + var(--statement-duration) *
+            var(--statement-fade-start)
+        )
+        both;
+  }
+
+  [data-state="playing"] [data-line="1"] {
+    --statement-duration: var(--statement-duration-1);
+    --statement-line-delay: 0ms;
+  }
+
+  [data-state="playing"] [data-line="2"] {
+    --statement-duration: var(--statement-duration-2);
+    --statement-line-delay: var(--statement-delay);
+  }
 }
