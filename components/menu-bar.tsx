@@ -12,15 +12,14 @@ type MenuItemsProps = {
 
 const menuItems: MenuItemsProps[] = [
   { href: "/", label: "Início" },
-  { href: "/servicos", label: "Serviços" },
-  { href: "/sobre", label: "Sobre" },
+  { href: "/produtos", label: "Produtos" },
 ];
 
 const contact: MenuItemsProps = { href: "/contato", label: "Contato" };
 
 export function MenuBar() {
   return (
-    <header className="fixed top-6 left-4 right-[calc(1rem+var(--removed-body-scroll-bar-size,0px))] z-50 mx-auto flex max-w-content items-center justify-between rounded-menu border border-menubar-border bg-menubar px-6 py-3.5 shadow-menubar backdrop-blur-menubar lg:px-20">
+    <header className="fixed top-6 left-4 right-[calc(1rem+var(--removed-body-scroll-bar-size,0px))] z-50 mx-auto flex max-w-content items-center justify-between rounded-menu border border-menubar-border bg-menubar px-6 py-3.5 shadow-menubar backdrop-blur-menubar lg:px-20 ">
       <Link
         href="/"
         className="text-button text-foreground-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-detail"
