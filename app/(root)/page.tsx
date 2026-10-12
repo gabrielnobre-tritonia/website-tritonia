@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HomeStatement } from "@/components/home-statement";
 import { GradientButton } from "@/components/link-button";
 
 const Home = () => {
@@ -39,12 +40,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="-mx-(--page-gutter) flex h-[600px] items-center justify-center bg-background-accent px-(--page-gutter) text-foreground-light">
-        <h2 className="text-headline w-full max-w-[1348px] text-center max-[1400px]:text-[4.5rem] max-xl:text-[3.5rem] max-lg:text-[2.5rem]">
-          Softwares sob medida para desafios <br className="max-md:hidden" />
-          que não cabem em soluções prontas.
-        </h2>
-      </section>
+      <HomeStatement />
     </>
   );
 };
