@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { AboutSection } from "@/components/about-section";
 import { HomeStatement } from "@/components/home-statement";
 import { GradientButton } from "@/components/link-button";
 
 const Home = () => {
   return (
     <>
-      <section className="relative -mx-(--page-gutter) flex min-h-dvh flex-col items-center justify-center overflow-hidden text-center">
+      <section className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden text-center">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 overflow-hidden bg-(image:--hero-network) bg-cover bg-center"
@@ -41,6 +42,7 @@ const Home = () => {
       </section>
 
       <HomeStatement />
+      <AboutSection />
     </>
   );
 };
