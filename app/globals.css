@@ -68,6 +68,11 @@
   --about-logo: url("/logos/light/logo-bg.svg");
   --about-ellipse: url("/backgrounds/light/ellipse-sobre-nos-bg.svg");
 
+  /* Luz dos circuitos da seção "Sobre Nós": tom mais escuro que a linha, para
+     ter contraste com o fundo claro. */
+  --circuit-light-orange: #b84a06;
+  --circuit-light-green: #0a8f67;
+
   --popover: var(--palette-light);
   --accent: var(--palette-gray);
   --accent-foreground: var(--palette-light);
@@ -92,6 +97,10 @@
 
   --about-logo: url("/logos/dark/logo-bg.svg");
   --about-ellipse: url("/backgrounds/dark/ellipse-sobre-nos-bg.svg");
+
+  /* Tom mais claro que a linha, para se destacar do fundo escuro. */
+  --circuit-light-orange: var(--palette-peach);
+  --circuit-light-green: #9ff5d6;
 
   --popover: var(--surface);
   --accent: rgb(255 255 255 / 0.08);
@@ -295,5 +304,50 @@ body {
   [data-state="playing"] [data-line="2"] {
     --statement-duration: var(--statement-duration-2);
     --statement-line-delay: var(--statement-delay);
+  }
+}
+
+/* Luz dos circuitos (components/circuit-line.tsx). O caminho da luz tem
+   `pathLength="100"`, então o comprimento da luz e o deslocamento são em % do
+   trajeto. Com o traço `<L> 100` há uma luz só no trajeto; o deslocamento `L`
+   deixa a luz inteira antes da entrada e `-100`, inteira depois da saída (nos
+   dois a luz fica invisível, que é também o estado sem animação, com movimento
+   reduzido). Ajustes: `--circuit-duration` (ciclo todo) e `--circuit-light-length`
+   (comprimento da luz, ~11 = 50 unidades do SVG) aqui, ou por instância pelas
+   props do componente; o atraso é por instância (`--circuit-delay`). A luz leva
+   90% do ciclo no trajeto, em velocidade constante (`linear`), e os 10%
+   restantes ficam fora dele, para a luz sair antes de reiniciar sem salto.
+   Esses 90% são fixos no `@keyframes` (porcentagem de quadro-chave não aceita
+   variável). Cor da luz por tema: `--circuit-light-orange` e
+   `--circuit-light-green`, nos blocos de tema acima. */
+:root {
+  --circuit-duration: 5s;
+  --circuit-light-length: 11;
+}
+
+[data-circuit-light] {
+  stroke-dasharray: var(--circuit-light-length) 100;
+  stroke-dashoffset: var(--circuit-light-length);
+}
+
+@keyframes circuit-light {
+  0% {
+    stroke-dashoffset: var(--circuit-light-length);
+  }
+  90%,
+  100% {
+    stroke-dashoffset: -100;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-circuit-light] {
+    animation: circuit-light var(--circuit-duration) linear
+      var(--circuit-delay, 0s) infinite both;
+  }
+
+  /* Direção invertida: a luz sai do ponto e a pausa vai para o começo. */
+  [data-circuit-light][data-reverse] {
+    animation-direction: reverse;
   }
 }
