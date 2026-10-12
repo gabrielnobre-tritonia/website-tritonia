@@ -64,6 +64,10 @@
   /* Rede de fundo da home: #ececec a 59% no claro, #223140 a 20% no escuro. */
   --hero-network: url("/backgrounds/redes-bg-light.svg");
 
+  /* Logo e elipse de brilho ao fundo da seção "Sobre Nós". */
+  --about-logo: url("/logos/light/logo-bg.svg");
+  --about-ellipse: url("/backgrounds/light/ellipse-sobre-nos-bg.svg");
+
   --popover: var(--palette-light);
   --accent: var(--palette-gray);
   --accent-foreground: var(--palette-light);
@@ -85,6 +89,9 @@
   --button-to: var(--palette-orange-dark);
 
   --hero-network: url("/backgrounds/redes-bg.svg");
+
+  --about-logo: url("/logos/dark/logo-bg.svg");
+  --about-ellipse: url("/backgrounds/dark/ellipse-sobre-nos-bg.svg");
 
   --popover: var(--surface);
   --accent: rgb(255 255 255 / 0.08);
