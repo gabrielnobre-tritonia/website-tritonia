@@ -96,7 +96,7 @@ export function HomeStatement() {
   return (
     <section
       ref={ref}
-      className="-mx-(--page-gutter) flex h-[600px] items-center justify-center bg-background-accent px-(--page-gutter) text-foreground-light motion-safe:sticky motion-safe:top-0 motion-safe:z-0"
+      className="flex h-[250] md:h-[400px] lg:h-[550px] items-center justify-center bg-background-accent px-(--page-gutter) text-foreground-light motion-safe:sticky motion-safe:top-0 motion-safe:z-0"
     >
       <h2 className="text-headline w-full max-w-[1348px] text-center max-wide:text-[4.5rem] max-xl:text-[3.5rem] max-lg:text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem] max-xs:text-[1.25rem] max-2xs:text-[1.125rem] max-3xs:text-[1rem]">
         <span data-line="1" className="block">
