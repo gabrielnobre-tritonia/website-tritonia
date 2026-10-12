@@ -1,11 +1,13 @@
+import { CircuitLine } from "@/components/circuit-line";
 import { aboutStats } from "@/lib/constants";
 
 /**
  * Seção "Sobre Nós" da home.
  *
  * Camadas: vem depois da faixa laranja fixa (`HomeStatement`, `sticky z-0`),
- * então é opaca, `relative z-10` e em largura total (`-mx-(--page-gutter)`),
- * para cobri-la sem deixar tiras laterais. O `overflow-hidden` fica só aqui:
+ * então é opaca, `relative z-10` e em largura total (o layout `(root)` não
+ * tem padding lateral), para cobri-la sem deixar tiras laterais. O
+ * `overflow-hidden` fica só aqui:
  * só um ancestral com `overflow` quebraria o `sticky` da faixa.
  *
  * Logo e elipse ao fundo usam `cqw` (1cqw = 1% da largura da seção, que é o
@@ -40,22 +42,59 @@ export function AboutSection() {
       />
 
       <div className="relative flex w-full justify-center px-(--page-gutter)">
-        <div className="flex w-full max-w-content flex-col gap-10 py-menubar  ">
+        {/* Circuito verde inferior, atrás do conteúdo. A camada tem a largura da
+            seção (ele encosta na borda) e a altura do conteúdo, e ele fica na
+            faixa abaixo do card. Os outros dois circuitos ficam presos ao título
+            e ao parágrafo, mais abaixo. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+        >
+          <CircuitLine
+            orientation="rotate"
+            lineColor="#0fd298"
+            lightColor="var(--circuit-light-green)"
+            delay="1.6s"
+            className="absolute bottom-4 left-0 w-[60cqw] sm:w-[40cqw] lg:bottom-[3.6cqw] lg:w-[25.8cqw]"
+          />
+        </div>
+
+        <div className="relative flex w-full max-w-content flex-col gap-10 py-menubar">
           <p className="font-display text-[14px] font-medium text-foreground">
             SOBRE NÓS
           </p>
 
-          <div className="flex flex-col items-end gap-10">
-            <h2 className="text-h1 w-full text-foreground max-sm:text-[1.75rem]">
-              Sistema sob medida começa antes do código.{" "}
-              <br className="max-md:hidden" />
-              Começa{" "}
-              <span className="text-background-accent">
-                entendendo o seu problema.
-              </span>
-            </h2>
+          {/* Os circuitos laranja e verde da direita se prendem ao fim do título e
+              do parágrafo (a altura do título muda com a largura da janela) e
+              chegam às bordas da seção por `calc(50% - 50cqw)`: o bloco é
+              centralizado na seção, então 50% dele menos 50cqw é a distância até
+              a borda. A partir de `lg` têm 25,8cqw (496px em 1920px, como no
+              Figma) e passam pelo vazio ao lado do parágrafo e por trás do vidro
+              do card; abaixo disso cabem no vão de 40px entre os blocos
+              (min(40cqw, 150px) de largura, ~31px de altura). Laranja girado em
+              180° (ponto no canto superior direito). Atrasos diferentes (0s,
+              0,8s e 1,6s com o verde inferior), para não começarem juntos. O
+              texto e o card ficam `relative` para pintar à frente deles. */}
+          <div className="relative flex flex-col items-end gap-10">
+            <div className="relative w-full">
+              <h2 className="text-h1 relative w-full text-foreground max-sm:text-[1.75rem]">
+                Sistema sob medida começa antes do código.{" "}
+                <br className="max-md:hidden" />
+                Começa{" "}
+                <span className="text-background-accent">
+                  entendendo o seu problema.
+                </span>
+              </h2>
+              <CircuitLine
+                orientation="rotate"
+                lineColor="var(--palette-orange)"
+                lightColor="var(--circuit-light-orange)"
+                delay="0s"
+                className="absolute top-[calc(100%+4px)] left-[calc(50%-50cqw)] w-[min(40cqw,150px)] lg:top-[calc(100%+14px)] lg:left-[calc(50%-48.85cqw)] lg:w-[25.8cqw]"
+              />
+            </div>
 
-            <p className="text-body max-w-[650px] text-foreground max-sm:text-base">
+            <p className="text-body relative max-w-[650px] text-foreground max-sm:text-base">
               A Tritonia é uma empresa de serviços com foco em tecnologia.
               Atuamos junto a organizações públicas e privadas, unindo gestão de
               operações ao desenvolvimento de sistemas, sempre a partir de um
@@ -67,10 +106,16 @@ export function AboutSection() {
               O resultado são sistemas sob medida para a operação que você tem,
               não para uma versão genérica dela.
             </p>
+            <CircuitLine
+              lineColor="#0fd298"
+              lightColor="var(--circuit-light-green)"
+              delay="0.8s"
+              className="absolute top-[calc(100%+2px)] right-[calc(50%-50cqw)] w-[min(40cqw,150px)] lg:top-[calc(100%+11px)] lg:w-[25.8cqw]"
+            />
           </div>
 
           {/* Mesmos tokens do menu bar: vidro no escuro, navy sólido no claro. */}
-          <div className="rounded-card border border-menubar-border bg-menubar p-5 shadow-menubar backdrop-blur-menubar">
+          <div className="relative rounded-card border border-menubar-border bg-menubar p-5 shadow-menubar backdrop-blur-menubar">
             <ul className="grid grid-cols-1 gap-5 sm:flex lg:flex">
               {aboutStats.map((stat) => (
                 <li
