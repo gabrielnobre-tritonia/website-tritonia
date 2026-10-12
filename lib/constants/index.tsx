@@ -43,11 +43,53 @@ export const serviceCards: ServiceCardData[] = [
     ),
     subtitle: "Do problema à solução",
     description:
-      "Construímos sistemas, aplicativos e ferramentas sob medida para atender às necessidades específicas da sua operação e do seu negócio",
+      "Construímos sistemas, aplicativos e ferramentas sob medida para atender às necessidades específicas da sua operação e do seu negócio.",
     items: [
       { label: "Soluções sob medida" },
       { label: "Segurança e confiabilidade" },
       { label: "Escalabilidade e performance" },
+    ],
+  },
+  {
+    id: "evolucao-e-sustentacao",
+    baseColor: "var(--card-orange)",
+    background: "/backgrounds/card-bg-orange.svg",
+    number: "02",
+    numberColor: "#DE5A07",
+    title: (
+      <>
+        Evolução e <br />
+        sustentação
+      </>
+    ),
+    subtitle: "Tecnologia que acompanha o negócio",
+    description:
+      "Mantemos e evoluímos sistemas existentes, modernizando tecnologias, integrando soluções e garantindo a continuidade da operação.",
+    items: [
+      { label: "Manutenção contínua" },
+      { label: "Modernização contínua" },
+      { label: "Integração de sistemas" },
+    ],
+  },
+  {
+    id: "gestao-de-operacoes",
+    baseColor: "var(--card-green)",
+    background: "/backgrounds/card-bg-green.svg",
+    number: "03",
+    numberColor: "#079269",
+    title: (
+      <>
+        Gestão de <br />
+        operações
+      </>
+    ),
+    subtitle: "Além da tecnologia",
+    description:
+      "Atuamos diretamente na gestão de operações apoiadas por tecnologia, conectando processos, sistemas, usuários e serviços.",
+    items: [
+      { label: "Processos eficientes" },
+      { label: "Indicadores e performance" },
+      { label: "Suporte e atendimento" },
     ],
   },
 ];
