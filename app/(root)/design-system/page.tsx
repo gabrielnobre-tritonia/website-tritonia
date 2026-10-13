@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import { ExpandableCard } from "@/components/expandable-card";
 import { ContactButton, GradientButton } from "@/components/link-button";
+import { MapCard } from "@/components/map-card";
 import { MenuItem } from "@/components/menu-item";
 import { ServiceCard } from "@/components/service-card";
+import { StatCard } from "@/components/stat-card";
 import { TokenSwatch } from "@/components/token-swatch";
-import { serviceCards } from "@/lib/constants";
+import { serviceCards, whyMapCard, whyStatCard } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Design System",
@@ -427,6 +430,61 @@ export default function DesignSystemPage() {
             <Caption>
               1080 x 435 · raio 35px · base, fundo e cor do número por card ·
               informações em bloco de 811 x 232, a 40px da base
+            </Caption>
+          </Group>
+
+          <Group title="Card expansível">
+            <div className="flex gap-5 overflow-x-auto pb-2">
+              <ExpandableCard
+                title={
+                  <>
+                    Atendimento direto, <br />
+                    sem intermediário
+                  </>
+                }
+                subtitle="Conversa direta com quem constrói o sistema, sem camadas no meio."
+                image="/card-images/smartphone.png"
+                lineColor="#00adc8"
+              />
+              <ExpandableCard
+                title={
+                  <>
+                    Evolução contínua <br />
+                    do sistema
+                  </>
+                }
+                subtitle="O sistema acompanha o negócio e evolui junto com ele."
+                image="/card-images/smartphone.png"
+                lineColor="#f7660b"
+              />
+              <ExpandableCard
+                title={
+                  <>
+                    Flexibilidade para <br />
+                    setor público e privado
+                  </>
+                }
+                subtitle="Entendemos as regras de cada tipo de operação."
+                image="/card-images/smartphone.png"
+                lineColor="#056e4f"
+              />
+            </div>
+            <Caption>
+              239 x 488 recolhido, 635 x 488 expandido (passe o mouse ou use
+              Tab) · barra de 7px no topo · imagem 255 x 332, expandida 356 x
+              463 · fundo #E5E5E5 por padrão
+            </Caption>
+          </Group>
+
+          <Group title="Cards quadrados">
+            <div className="flex flex-wrap items-start gap-4">
+              <MapCard {...whyMapCard} />
+              <StatCard {...whyStatCard} />
+            </div>
+            <Caption>
+              Card do mapa: 239 x 236, fundo ciano · card de número: 239 x 236,
+              fundo laranja, estático (sem foco nem hover), número em Chakra
+              Petch 48px
             </Caption>
           </Group>
         </Section>
