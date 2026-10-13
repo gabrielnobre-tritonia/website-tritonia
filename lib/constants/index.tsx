@@ -94,6 +94,128 @@ export const serviceCards: ServiceCardData[] = [
   },
 ];
 
+export type WhyCardData = {
+  id: string;
+  title: ReactNode;
+  subtitle: string;
+  /** Caminho da imagem em `public/`. */
+  image: string;
+  /** Cor da barra do topo, como valor CSS direto (não é token da paleta). */
+  lineColor: string;
+};
+
+export const whyCards: WhyCardData[] = [
+  {
+    id: "atendimento-direto",
+    title: (
+      <>
+        Atendimento direto, <br />
+        sem intermediário
+      </>
+    ),
+    subtitle:
+      "Fala direto com quem desenvolve, sem burocracia de suporte terceirizado.",
+    image: "/card-images/smartphone.png",
+    lineColor: "#00ADC8",
+  },
+  {
+    id: "flexibilidade-setor-publico-e-privado",
+    title: (
+      <>
+        Flexibilidade para <br />
+        setor público e <br />
+        privado
+      </>
+    ),
+    subtitle:
+      "Mesma qualidade de entrega, seja contrato governamental ou operação privada.",
+    image: "/card-images/nota-fiscal.png",
+    lineColor: "#056E4F",
+  },
+  {
+    id: "evolucao-continua",
+    title: (
+      <>
+        Evolução contínua <br />
+        do sistema
+      </>
+    ),
+    subtitle:
+      "O sistema não para no dia da entrega, evolui junto com a necessidade da operação.",
+    image: "/card-images/tela.png",
+    lineColor: "#F7660B",
+  },
+];
+
+export type MapLabelData = {
+  id: string;
+  name: string;
+  /** Posição do pino na caixa do mapa expandido, em % da largura. */
+  x: number;
+  /** Posição do pino na caixa do mapa expandido, em % da altura. */
+  y: number;
+  /** Deslocamento horizontal do centro do nome em relação ao pino, em px. */
+  dx: number;
+  /** Deslocamento vertical do centro do nome em relação ao pino, em px (negativo sobe). */
+  dy: number;
+};
+
+export type MapCardData = {
+  /** Texto do card, com as quebras de linha (`<br />`). */
+  text: ReactNode;
+  /** Mapa do card recolhido (`public/`). */
+  image: string;
+  /** Mapa do card expandido (`public/`). */
+  imageExpanded: string;
+  labels: MapLabelData[];
+};
+
+export const whyMapCard: MapCardData = {
+  text: (
+    <>
+      Presente em <br />2 estados e <br />3 cidades
+    </>
+  ),
+  image: "/card-images/map.png",
+  imageExpanded: "/card-images/map-expansive.png",
+  labels: [
+    { id: "sobral", name: "Sobral", x: 60, y: 14, dx: -12, dy: 22 },
+    { id: "fortaleza", name: "Fortaleza", x: 71, y: 12, dx: 28, dy: -22 },
+    { id: "barreiras", name: "Barreiras", x: 30, y: 63, dx: 32, dy: -22 },
+  ],
+};
+
+export type StatCardData = {
+  value: string;
+  unit: string;
+  /** Frase abaixo do número, com as quebras de linha (`<br />`). */
+  description: ReactNode;
+};
+
+export const whyStatCard: StatCardData = {
+  value: "+2,9",
+  unit: "milhões",
+  description: (
+    <>
+      Clientes utilizam os <br />
+      nossos serviços
+    </>
+  ),
+};
+
+export type NavLink = {
+  href: string;
+  label: string;
+};
+
+/** Itens de navegação do menu bar (o contato fica à parte, como botão). */
+export const menuItems: NavLink[] = [
+  { href: "/", label: "Início" },
+  { href: "/produtos", label: "Produtos" },
+];
+
+export const contact: NavLink = { href: "/contato", label: "Contato" };
+
 export type AboutStat = {
   id: string;
   title: string;
