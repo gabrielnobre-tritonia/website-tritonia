@@ -1,7 +1,10 @@
 import Image from "next/image";
 import { AboutSection } from "@/components/about-section";
+import { CtaSection } from "@/components/cta-section";
 import { HomeStatement } from "@/components/home-statement";
 import { GradientButton } from "@/components/link-button";
+import { SolutionsSection } from "@/components/solutions-section";
+import { WhyTritoniaSection } from "@/components/why-tritonia-section";
 
 const Home = () => {
   return (
@@ -27,7 +30,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="relative flex flex-col items-center gap-10 px-(--page-gutter) py-menubar">
+        <div className="relative flex flex-col items-center gap-5 px-(--page-gutter) py-menubar">
           <h1 className="text-headline text-foreground max-lg:text-[3.5rem] max-sm:text-[2.5rem]">
             Construímos o sistema <br className="max-md:hidden" />
             que <span className="text-background-accent">você</span> precisa.
@@ -43,6 +46,9 @@ const Home = () => {
 
       <HomeStatement />
       <AboutSection />
+      <SolutionsSection />
+      <WhyTritoniaSection />
+      <CtaSection />
     </>
   );
 };
