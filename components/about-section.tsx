@@ -7,25 +7,19 @@ export function AboutSection() {
       id="sobre"
       className="relative z-10 flex min-h-dvh items-center justify-center overflow-hidden @container bg-background"
     >
-      {/* Elipse de brilho, centralizada na horizontal (proporção 1440:631).
-          lg+: largura da seção; sm: 160cqw; base: 220cqw (o excesso é cortado). */}
+      {/* Elipse brilho */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute top-[20cqw] left-1/2 h-[96.4cqw] w-[220cqw] -translate-x-1/2 bg-(image:--about-ellipse) bg-contain bg-center bg-no-repeat select-none sm:top-[15.862cqw] sm:h-[70.1cqw] sm:w-[160cqw] lg:h-[43.819cqw] lg:w-full"
       />
 
-      {/* Logo, centralizado (proporção 666:555).
-          lg+: 46,25cqw; sm: 60cqw; base: 85cqw. */}
+      {/* Logo */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute top-1/2 left-1/2 h-[70.833cqw] w-[85cqw] -translate-1/2 bg-(image:--about-logo) bg-contain bg-center bg-no-repeat select-none sm:h-[50cqw] sm:w-[60cqw] lg:h-[38.542cqw] lg:w-[46.25cqw]"
       />
 
       <div className="relative flex w-full justify-center px-(--page-gutter)">
-        {/* Circuito verde inferior, atrás do conteúdo. A camada tem a largura da
-            seção (ele encosta na borda) e a altura do conteúdo, e ele fica na
-            faixa abaixo do card. Os outros dois circuitos ficam presos ao título
-            e ao parágrafo, mais abaixo. */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
@@ -39,63 +33,54 @@ export function AboutSection() {
           />
         </div>
 
-        <div className="relative flex w-full max-w-content flex-col gap-5 py-menubar">
-          <p className="font-display text-[14px] font-medium text-foreground">
-            SOBRE NÓS
-          </p>
+        <div className="relative flex w-full max-w-content gap-20 flex-col py-menubar lg:px-20">
+          <div className="flex flex-col gap-5">
+            <p className="font-display text-[14px] font-medium text-foreground">
+              SOBRE NÓS
+            </p>
 
-          {/* Os circuitos laranja e verde da direita se prendem ao fim do título e
-              do parágrafo (a altura do título muda com a largura da janela) e
-              chegam às bordas da seção por `calc(50% - 50cqw)`: o bloco é
-              centralizado na seção, então 50% dele menos 50cqw é a distância até
-              a borda. A partir de `lg` têm 25,8cqw (496px em 1920px, como no
-              Figma) e passam pelo vazio ao lado do parágrafo e por trás do vidro
-              do card; abaixo disso cabem no vão de 40px entre os blocos
-              (min(40cqw, 150px) de largura, ~31px de altura). Laranja girado em
-              180° (ponto no canto superior direito). Atrasos diferentes (0s,
-              0,8s e 1,6s com o verde inferior), para não começarem juntos. O
-              texto e o card ficam `relative` para pintar à frente deles. */}
-          <div className="relative flex flex-col items-end gap-10">
-            <div className="relative w-full">
-              <h2 className="text-h1 relative w-full text-foreground max-sm:text-[1.75rem]">
-                Sistema sob medida começa antes do código.{" "}
-                <br className="max-md:hidden" />
-                Começa{" "}
-                <span className="text-background-accent">
-                  entendendo o seu problema.
-                </span>
-              </h2>
+            <div className="relative flex flex-col items-end gap-5">
+              <div className="relative w-full">
+                <h2 className="text-h1 relative w-full text-foreground max-sm:text-[1.75rem]">
+                  Sistema sob medida começa antes do código.{" "}
+                  <br className="max-md:hidden" />
+                  Começa{" "}
+                  <span className="text-background-accent">
+                    entendendo o seu problema.
+                  </span>
+                </h2>
+                <CircuitLine
+                  orientation="rotate"
+                  lineColor="var(--palette-orange)"
+                  lightColor="var(--circuit-light-orange)"
+                  delay="0s"
+                  className="absolute top-[calc(100%+4px)] left-[calc(50%-50cqw)] w-[min(40cqw,150px)] lg:top-[calc(100%+14px)] lg:left-[calc(50%-48.85cqw)] lg:w-[25.8cqw]"
+                />
+              </div>
+
+              <p className="text-body relative max-w-[600px] text-foreground max-sm:text-base">
+                A Tritonia é uma empresa de serviços com foco em tecnologia.
+                Atuamos junto a organizações públicas e privadas, unindo gestão
+                de operações ao desenvolvimento de sistemas, sempre a partir de
+                um problema real. Nosso trabalho se apoia em três frentes:{" "}
+                <span className="font-extrabold">
+                  engenharia de software, entendimento de negócio e proximidade
+                  com quem usa nossas soluções.
+                </span>{" "}
+                O resultado são sistemas sob medida para a operação que você
+                tem, não para uma versão genérica dela.
+              </p>
               <CircuitLine
-                orientation="rotate"
-                lineColor="var(--palette-orange)"
-                lightColor="var(--circuit-light-orange)"
-                delay="0s"
-                className="absolute top-[calc(100%+4px)] left-[calc(50%-50cqw)] w-[min(40cqw,150px)] lg:top-[calc(100%+14px)] lg:left-[calc(50%-48.85cqw)] lg:w-[25.8cqw]"
+                lineColor="#0fd298"
+                lightColor="var(--circuit-light-green)"
+                delay="0.8s"
+                className="absolute top-[calc(100%+2px)] right-[calc(50%-50cqw)] w-[min(40cqw,150px)] lg:top-[calc(100%+11px)] lg:w-[25.8cqw]"
               />
             </div>
-
-            <p className="text-body relative max-w-[650px] text-foreground max-sm:text-base">
-              A Tritonia é uma empresa de serviços com foco em tecnologia.
-              Atuamos junto a organizações públicas e privadas, unindo gestão de
-              operações ao desenvolvimento de sistemas, sempre a partir de um
-              problema real. Nosso trabalho se apoia em três frentes:{" "}
-              <span className="font-extrabold">
-                engenharia de software, entendimento de negócio e proximidade
-                com quem usa nossas soluções.
-              </span>{" "}
-              O resultado são sistemas sob medida para a operação que você tem,
-              não para uma versão genérica dela.
-            </p>
-            <CircuitLine
-              lineColor="#0fd298"
-              lightColor="var(--circuit-light-green)"
-              delay="0.8s"
-              className="absolute top-[calc(100%+2px)] right-[calc(50%-50cqw)] w-[min(40cqw,150px)] lg:top-[calc(100%+11px)] lg:w-[25.8cqw]"
-            />
           </div>
 
           {/* Mesmos tokens do menu bar: vidro no escuro, navy sólido no claro. */}
-          <div className="relative rounded-card border border-menubar-border bg-menubar p-5 shadow-menubar backdrop-blur-menubar">
+          <div className="relative rounded-card border border-menubar-border bg-menubar p-2 shadow-menubar backdrop-blur-menubar">
             <ul className="grid grid-cols-1 gap-5 sm:flex lg:flex">
               {aboutStats.map((stat) => (
                 <li
