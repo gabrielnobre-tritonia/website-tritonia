@@ -3,6 +3,7 @@ import { Chakra_Petch, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { MenuBar } from "@/components/menu-bar";
+import { SiteFooter } from "@/components/site-footer";
 
 const chakraPetch = Chakra_Petch({
   variable: "--font-chakra-petch",
@@ -43,6 +44,7 @@ export default function RootLayout({
         >
           <MenuBar />
           <main className="flex flex-1 flex-col">{children}</main>
+          <SiteFooter />
         </ThemeProvider>
       </body>
     </html>
