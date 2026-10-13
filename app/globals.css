@@ -68,6 +68,12 @@
   --about-logo: url("/logos/light/logo-bg.svg");
   --about-ellipse: url("/backgrounds/light/ellipse-sobre-nos-bg.svg");
 
+  /* Elipse de brilho ao fundo da seção "Software genérico resolve…". */
+  --software-ellipse: url("/backgrounds/light/ellipse-software.svg");
+
+  /* Elipse de brilho ao fundo da seção CTA (último bloco da home). */
+  --cta-ellipse: url("/backgrounds/light/ellipse-cta.svg");
+
   /* Luz dos circuitos da seção "Sobre Nós": tom mais escuro que a linha, para
      ter contraste com o fundo claro. */
   --circuit-light-orange: #b84a06;
@@ -97,6 +103,8 @@
 
   --about-logo: url("/logos/dark/logo-bg.svg");
   --about-ellipse: url("/backgrounds/dark/ellipse-sobre-nos-bg.svg");
+  --software-ellipse: url("/backgrounds/dark/ellipse-software.svg");
+  --cta-ellipse: url("/backgrounds/dark/ellipse-cta.svg");
 
   /* Tom mais claro que a linha, para se destacar do fundo escuro. */
   --circuit-light-orange: var(--palette-peach);
@@ -181,7 +189,7 @@
 
 @utility text-h1 {
   font-family: var(--font-display);
-  font-size: 2.25rem;
+  font-size: 2rem;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: 0;
@@ -189,7 +197,7 @@
 
 @utility text-subheadline {
   font-family: var(--font-sans);
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0;
@@ -197,7 +205,7 @@
 
 @utility text-body {
   font-family: var(--font-sans);
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0;
