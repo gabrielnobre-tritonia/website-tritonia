@@ -37,14 +37,14 @@ export function ServiceCard({
         {number}
       </span>
 
-      <div className="absolute bottom-10 left-1/2 flex h-[240px] w-[811px] -translate-x-1/2 items-end gap-[70px]">
+      <div className="absolute bottom-10 left-1/2 flex h-[180px] w-[811px] -translate-x-1/2 items-end gap-[70px]">
         <div className="flex h-full flex-1 flex-col justify-between">
           <h3 className="text-h1">{title}</h3>
           <p className="text-subtitle">{subtitle}</p>
           <p className="text-body">{description}</p>
         </div>
 
-        <ul className="flex h-[178px] flex-1 flex-col justify-between">
+        <ul className="flex h-[150px] flex-1 flex-col justify-between">
           {items.map((item, index) => (
             <Fragment key={item.label}>
               {index > 0 ? (
