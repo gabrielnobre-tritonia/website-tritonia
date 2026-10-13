@@ -4,22 +4,11 @@ import { MenuItem } from "./menu-item";
 import { MobileMenu } from "./mobile-menu";
 import { ThemeSwitcher } from "./theme-switcher";
 import Image from "next/image";
-
-type MenuItemsProps = {
-  href: string;
-  label: string;
-};
-
-const menuItems: MenuItemsProps[] = [
-  { href: "/", label: "Início" },
-  { href: "/produtos", label: "Produtos" },
-];
-
-const contact: MenuItemsProps = { href: "/contato", label: "Contato" };
+import { contact, menuItems } from "@/lib/constants";
 
 export function MenuBar() {
   return (
-    <header className="fixed top-6 left-4 right-[calc(1rem+var(--removed-body-scroll-bar-size,0px))] z-50 mx-auto flex max-w-content items-center justify-between rounded-menu border border-menubar-border bg-menubar px-6 py-3.5 shadow-menubar backdrop-blur-menubar lg:px-20 ">
+    <header className="fixed top-6 left-4 right-[calc(1rem+var(--removed-body-scroll-bar-size,0px))] z-50 mx-auto flex max-w-content items-center justify-between rounded-menu border border-menubar-border bg-menubar px-6 py-2.5 shadow-menubar backdrop-blur-menubar lg:px-20 ">
       <Link
         href="/"
         className="text-button text-foreground-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-detail"
