@@ -1,4 +1,4 @@
-import { Monitor, Moon, Sun, type LucideIcon } from "lucide-react";
+import { Landmark, Monitor, Moon, Sun, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
 export const options: {
@@ -254,5 +254,70 @@ export const aboutStats: AboutStat[] = [
     title: "+15%",
     subtitle: "de redução de erros em processos",
     color: "var(--foreground-light)",
+  },
+];
+
+export type ProductSlideItem = {
+  /** Caminho do SVG em `public/`. */
+  icon: string;
+  label: string;
+};
+
+export type ProductSlideData = {
+  id: string;
+  badge: {
+    label: string;
+    color: string;
+    icon: ReactNode;
+  };
+  title: string;
+  description: string;
+  cta: { label: string; href: string };
+  items: ProductSlideItem[];
+  image: { src: string; width: number; height: number };
+};
+
+/** Cores dos badges de setor. O privado ainda não tem slide. */
+export const sectorColors = {
+  public: "#00ADC8",
+  private: "#034431",
+};
+
+export const productSlides: ProductSlideData[] = [
+  {
+    id: "sgvm",
+    badge: {
+      label: "SETOR PÚBLICO",
+      color: sectorColors.public,
+      // Provisório: o SVG do badge ainda não foi enviado.
+      icon: <Landmark className="size-full" strokeWidth={1.75} />,
+    },
+    title: "SGVM - Sistema de Gestão de Videomonitoramento",
+    description:
+      "Solução utilizada por órgãos fiscalizadores de trânsito para registrar multas originadas de eventos capturados por câmeras de videomonitoramento. O fiscal analisa a ocorrência e formaliza o registro no sistema, que envia a informação ao sistema de multas do governo federal para dar sequência ao processo de fiscalização.",
+    cta: {
+      label: "Solicitar demonstração do SGVM",
+      href: "/contato",
+    },
+    // Provisório: a ordem dos ícones segue o palpite, a confirmar.
+    items: [
+      {
+        icon: "/images-apps/sgvm/icons/dinheiro.svg",
+        label: "Integração com o sistema federal",
+      },
+      {
+        icon: "/images-apps/sgvm/icons/cartao.svg",
+        label: "Centralização do registro",
+      },
+      {
+        icon: "/images-apps/sgvm/icons/fiscalizacao.svg",
+        label: "Dashboard de gestão por agente",
+      },
+    ],
+    image: {
+      src: "/images-apps/sgvm/mockup.png",
+      width: 3218,
+      height: 1709,
+    },
   },
 ];
