@@ -5,6 +5,7 @@ import { ExpandableCard } from "@/components/expandable-card";
 import { ContactButton, GradientButton } from "@/components/link-button";
 import { MapCard } from "@/components/map-card";
 import { MenuItem } from "@/components/menu-item";
+import { ProductCarousel } from "@/components/product-carousel";
 import { ServiceCard } from "@/components/service-card";
 import { StatCard } from "@/components/stat-card";
 import { TokenSwatch } from "@/components/token-swatch";
@@ -485,6 +486,16 @@ export default function DesignSystemPage() {
               Card do mapa: 239 x 236, fundo ciano · card de número: 239 x 236,
               fundo laranja, estático (sem foco nem hover), número em Chakra
               Petch 48px
+            </Caption>
+          </Group>
+
+          <Group title="Carrossel de produtos">
+            <ProductCarousel />
+            <Caption>
+              Card #213445 · raio 20px · margem lateral 66px · padding 24 x 16 ·
+              altura mínima 400px · texto 564px · blocos a 40px · badge com
+              padding 16 x 12 · setas de 40px nas margens, desabilitadas nas
+              pontas (sem loop)
             </Caption>
           </Group>
         </Section>
