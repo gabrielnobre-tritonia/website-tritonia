@@ -25,7 +25,7 @@ export function GradientButton({
   return (
     <Link
       {...props}
-      className={`${base} gap-2 rounded-button px-6 py-5 bg-linear-to-r/srgb from-button-from to-button-to hover:bg-none hover:bg-button-to ${className}`}
+      className={`${base} gap-2 rounded-button px-6 py-3 bg-linear-to-r/srgb from-button-from to-button-to hover:bg-none hover:bg-button-to ${className}`}
     >
       {icon ? (
         <span
