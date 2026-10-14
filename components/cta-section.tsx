@@ -8,7 +8,7 @@ export function CtaSection() {
       {/* Elipse de brilho: largura toda da seção, topo 155px acima dela. A caixa tem a proporção do SVG claro (1440 x 776); o escuro (1440 x 697) fica no topo dela. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-[155px] left-0 aspect-[1440/776] w-full bg-(image:--cta-ellipse) bg-[length:100%_auto] bg-top-left bg-no-repeat select-none"
+        className="pointer-events-none absolute top-[80px] left-0 aspect-[1440/1000] w-full bg-(image:--cta-ellipse) bg-[length:100%_auto] bg-top-left bg-no-repeat select-none"
       />
 
       <div className="relative flex w-full justify-center px-(--page-gutter)">
