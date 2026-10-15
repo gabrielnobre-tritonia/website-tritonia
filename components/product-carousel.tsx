@@ -19,11 +19,22 @@ const arrowClass =
 /** Carrossel de produtos: um card de 400px de altura mínima por sistema. Todo o conteúdo vem de `productSlides`. */
 export function ProductCarousel() {
   return (
-    <section className="bg-background items-center justify-center flex py-20">
+    <section className="bg-background relative flex items-center justify-center overflow-hidden py-20">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 right-0 bottom-0 left-0 bg-(image:--about-ellipse) bg-cover bg-center bg-no-repeat select-none"
+      />
+
+      {/* Elipse de brilho do software: 672 x 745px (tamanho do SVG), 176px para fora da borda direita, centralizada na vertical. Espelha a da WhyTritoniaSection, que fica à esquerda. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/2 -right-44 h-[745px] w-[672px] -translate-y-1/2 bg-(image:--software-ellipse) bg-contain bg-no-repeat select-none"
+      />
+
       <Carousel
         aria-label="Produtos"
         opts={{ loop: false }}
-        className="h-[600px] rounded-card bg-surface px-6 items-center flex text-foreground-light"
+        className="rounded-card bg-surface text-foreground-light flex h-[600px] w-[1300px] items-center px-6"
       >
         <CarouselContent className="ml-0">
           {productSlides.map((slide, index) => (
@@ -35,7 +46,7 @@ export function ProductCarousel() {
               <div className="flex w-full justify-between gap-6">
                 <div className="flex w-[564px] shrink-0 flex-col items-start gap-7 self-start">
                   <span
-                    className="inline-flex items-center gap-2 rounded-full px-4 py-3 text-button"
+                    className="text-button inline-flex items-center gap-2 rounded-full px-4 py-3"
                     style={{ backgroundColor: slide.badge.color }}
                   >
                     <span
@@ -59,7 +70,7 @@ export function ProductCarousel() {
                     {slide.items.map((item) => (
                       <li
                         key={item.label}
-                        className="flex items-center gap-3 text-body"
+                        className="text-body flex items-center gap-3"
                       >
                         <Image
                           src={item.icon}
@@ -82,7 +93,9 @@ export function ProductCarousel() {
                     width={slide.image.width}
                     height={slide.image.height}
                     sizes="700px"
-                    className="pointer-events-none h-auto w-full select-none"
+
+                    className="pointer-events-none h-auto w-full object-contain select-none"
+                    priority
                   />
                 </div>
               </div>
