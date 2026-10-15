@@ -26,21 +26,6 @@ const RESET_AT = 0.9;
  */
 const FULLY_VISIBLE = 0.98;
 
-/**
- * Faixa laranja da home, com a frase de posicionamento.
- *
- * Camadas: a faixa fica fixa no topo (`sticky top-0 z-0`) e qualquer seção que
- * venha depois dela deve ser opaca, `relative z-10` e em largura total
- * (`-mx-(--page-gutter)`, como a faixa), para cobri-la de baixo para cima sem
- * deixar tiras laterais. O recorte do texto é só essa cobertura.
- *
- * Isso depende de nenhum ancestral da faixa ter `overflow` diferente de
- * `visible`: com `overflow`, o `sticky` deixa de funcionar.
- *
- * O atributo `data-state` da faixa (`pending` e `playing`) só existe depois da
- * montagem; sem ele (servidor, sem JavaScript, movimento reduzido) o título
- * aparece pronto.
- */
 export function HomeStatement() {
   const ref = useRef<HTMLElement>(null);
 
@@ -96,9 +81,9 @@ export function HomeStatement() {
   return (
     <section
       ref={ref}
-      className="flex h-[250] md:h-[400px] lg:h-[550px] items-center justify-center bg-background-accent px-(--page-gutter) text-foreground-light motion-safe:sticky motion-safe:top-0 motion-safe:z-0"
+      className="bg-background-accent text-foreground-light flex h-[250] items-center justify-center px-(--page-gutter) motion-safe:sticky motion-safe:top-0 motion-safe:z-0 md:h-[400px] lg:h-[550px]"
     >
-      <h2 className="text-headline w-full max-w-[1348px] text-center max-wide:text-[4.5rem] max-xl:text-[3.5rem] max-lg:text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem] max-xs:text-[1.25rem] max-2xs:text-[1.125rem] max-3xs:text-[1rem]">
+      <h2 className="text-headline max-wide:text-[4.5rem] max-xs:text-[1.25rem] max-2xs:text-[1.125rem] max-3xs:text-[1rem] w-full max-w-[1348px] text-center max-xl:text-[3.5rem] max-lg:text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem]">
         <span data-line="1" className="block">
           Softwares sob medida para desafios
         </span>{" "}

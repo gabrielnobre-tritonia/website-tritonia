@@ -8,10 +8,10 @@ import { contact, menuItems } from "@/lib/constants";
 
 export function MenuBar() {
   return (
-    <header className="fixed top-6 left-4 right-[calc(1rem+var(--removed-body-scroll-bar-size,0px))] z-50 mx-auto flex max-w-content items-center justify-between rounded-menu border border-menubar-border bg-menubar px-6 py-2.5 shadow-menubar backdrop-blur-menubar lg:px-20 ">
+    <header className="max-w-content border-menubar-border bg-menubar shadow-menubar backdrop-blur-menubar fixed top-6 right-[calc(1rem+var(--removed-body-scroll-bar-size,0px))] left-4 z-50 mx-auto flex items-center justify-between rounded-full border px-6 py-2.5 lg:px-20">
       <Link
         href="/"
-        className="text-button text-foreground-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-detail"
+        className="text-button text-foreground-light focus-visible:outline-detail focus-visible:outline-2 focus-visible:outline-offset-2"
       >
         <Image
           src={"/logos/logo-menu.png"}

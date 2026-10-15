@@ -4,7 +4,7 @@ import { GradientButton } from "@/components/link-button";
 
 export function CtaSection() {
   return (
-    <section className="relative z-10 flex items-center justify-center overflow-hidden bg-background py-menubar">
+    <section className="bg-background py-menubar relative z-10 flex items-center justify-center overflow-hidden">
       {/* Elipse de brilho: largura toda da seção, topo 155px acima dela. A caixa tem a proporção do SVG claro (1440 x 776); o escuro (1440 x 697) fica no topo dela. */}
       <div
         aria-hidden="true"
@@ -12,7 +12,7 @@ export function CtaSection() {
       />
 
       <div className="relative flex w-full justify-center px-(--page-gutter)">
-        <div className="flex w-full max-w-content items-start justify-between lg:px-20">
+        <div className="max-w-content flex w-full items-start justify-between lg:px-20">
           <div className="flex shrink-0 flex-col items-start gap-10">
             <div className="flex flex-col items-start gap-6">
               <Image

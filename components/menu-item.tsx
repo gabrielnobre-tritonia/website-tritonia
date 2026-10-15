@@ -24,7 +24,7 @@ export function MenuItem({
       {...props}
       href={href}
       aria-current={isCurrent ? "page" : undefined}
-      className={`rounded-menu-item px-4 py-2 text-button text-foreground-light hover:bg-background-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-detail ${
+      className={`text-button text-foreground-light hover:bg-background-accent focus-visible:outline-detail rounded-[5px] px-4 py-2 focus-visible:outline-2 focus-visible:outline-offset-2 ${
         isCurrent ? "bg-background-accent" : "bg-transparent"
       } ${className}`}
     >
