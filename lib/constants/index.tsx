@@ -302,15 +302,15 @@ export const productSlides: ProductSlideData[] = [
     // Provisório: a ordem dos ícones segue o palpite, a confirmar.
     items: [
       {
-        icon: "/images-apps/sgvm/icons/dinheiro.svg",
+        icon: "/images-apps/sgvm/icons/integracao.svg",
         label: "Integração com o sistema federal",
       },
       {
-        icon: "/images-apps/sgvm/icons/cartao.svg",
+        icon: "/images-apps/sgvm/icons/centralizacao.svg",
         label: "Centralização do registro",
       },
       {
-        icon: "/images-apps/sgvm/icons/fiscalizacao.svg",
+        icon: "/images-apps/sgvm/icons/dashboard.svg",
         label: "Dashboard de gestão por agente",
       },
     ],
@@ -318,6 +318,150 @@ export const productSlides: ProductSlideData[] = [
       src: "/images-apps/sgvm/mockup.png",
       width: 3218,
       height: 1709,
+    },
+  },
+  {
+    id: "zad",
+    badge: {
+      label: "SETOR PRIVADO",
+      color: sectorColors.private,
+      // Provisório: o SVG do badge ainda não foi enviado.
+      icon: <Landmark className="size-full" strokeWidth={1.75} />,
+    },
+    title: "ZAD - Zona Azul Digital",
+    description:
+      "Operamos o sistema de forma integrada em três frentes: motorista, crédito e fiscalização. Da compra de crédito ao monitoramento em campo, tudo conectado em uma única plataforma que garante conformidade, eficiência e transparência para a cidade.",
+    cta: {
+      label: "Solicitar demonstração do ZAD",
+      href: "/contato",
+    },
+    // Provisório: a ordem dos ícones segue o palpite, a confirmar.
+    items: [
+      {
+        icon: "/images-apps/zad/icons/cartao.svg",
+        label: "Compra de crédito",
+      },
+      {
+        icon: "/images-apps/zad/icons/dinheiro.svg",
+        label: "Gestão de arrecadação",
+      },
+      {
+        icon: "/images-apps/zad/icons/fiscalizacao.svg",
+        label: "Fiscalização em campo",
+      },
+    ],
+    image: {
+      src: "/images-apps/zad/mockup.png",
+      width: 2300,
+      height: 1500,
+    },
+  },
+  {
+    id: "sigem",
+    badge: {
+      label: "SETOR PRIVADO",
+      color: sectorColors.private,
+      // Provisório: o SVG do badge ainda não foi enviado.
+      icon: <Landmark className="size-full" strokeWidth={1.75} />,
+    },
+    title: "SIGEM – Sistema Integrado de Gestão de Estoque e Materiais",
+    description:
+      "Sistema de controle de estoque com dashboard de acompanhamento em tempo real. Reúne saldo por item, entradas por nota fiscal, saídas vinculadas à ordem de serviço e contagens de inventário num só lugar, com alertas para itens zerados com OS aberta, abaixo do mínimo e capital parado.",
+    cta: {
+      label: "Solicitar demonstração do SIGEM",
+      href: "/contato",
+    },
+    // Provisório: a ordem dos ícones segue o palpite, a confirmar.
+    items: [
+      {
+        icon: "/images-apps/sigem/icons/visao.svg",
+        label: "Visão em tempo real",
+      },
+      {
+        icon: "/images-apps/sigem/icons/controle.svg",
+        label: "Controle completo",
+      },
+      {
+        icon: "/images-apps/sigem/icons/alerta.svg",
+        label: "Alertas inteligentes",
+      },
+    ],
+    image: {
+      src: "/images-apps/sigem/mockup.png",
+      width: 2000,
+      height: 1500,
+    },
+  },
+  {
+    id: "sgc",
+    badge: {
+      label: "SETOR PRIVADO",
+      color: sectorColors.private,
+      // Provisório: o SVG do badge ainda não foi enviado.
+      icon: <Landmark className="size-full" strokeWidth={1.75} />,
+    },
+    title: "SGC - Sistema de Gestão de Contratos",
+    description:
+      "Chega de perder prazo, medir a mais ou descobrir tarde que o saldo acabou. O SGC acompanha quantitativos, valores, medições e saldos em tempo real e mostra num painel único a saúde de toda a sua cateira.",
+    cta: {
+      label: "Solicitar demonstração do SGC",
+      href: "/contato",
+    },
+    // Provisório: a ordem dos ícones segue o palpite, a confirmar.
+    items: [
+      {
+        icon: "/images-apps/sgc/icons/medicoes.svg",
+        label: "Medições organizadas",
+      },
+      {
+        icon: "/images-apps/sgc/icons/saldos.svg",
+        label: "Saldos sempre certos",
+      },
+      {
+        icon: "/images-apps/sgc/icons/documentos.svg",
+        label: "Documentos profissionais",
+      },
+    ],
+    image: {
+      src: "/images-apps/sgc/mockup.png",
+      width: 2000,
+      height: 1500,
+    },
+  },
+  {
+    id: "sgf",
+    badge: {
+      label: "SETOR PRIVADO",
+      color: sectorColors.private,
+      // Provisório: o SVG do badge ainda não foi enviado.
+      icon: <Landmark className="size-full" strokeWidth={1.75} />,
+    },
+    title: "SGF - Sistema de Gestão de Financeira",
+    description:
+      "Do lançamento à confirmação de pagamento, o SGF dá rastro e governança a cada centavo - com fluxo de aprovação, centros de custo e visão clara de para onde o dinheiro está indo.",
+    cta: {
+      label: "Solicitar demonstração do SGF",
+      href: "/contato",
+    },
+    // Provisório: a ordem dos ícones segue o palpite, a confirmar.
+    items: [
+      {
+        icon: "/images-apps/sgf/icons/painel.svg",
+        label: "Painel de despesas",
+      },
+      {
+        icon: "/images-apps/sgf/icons/fluxo.svg",
+        label: "Fluxo de aprovação por perfil",
+      },
+      {
+        icon: "/images-apps/sgf/icons/auditoria.svg",
+        label: "Auditoria completa",
+      },
+    ],
+    image: {
+      src: "/images-apps/sgf/mockup.png",
+      width: 2000,
+      height: 1500,
     },
   },
 ];
