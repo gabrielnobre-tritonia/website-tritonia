@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { GradientButton } from "@/components/link-button";
 import {
@@ -62,8 +63,8 @@ export function ProductCarousel() {
 
                   <p className="text-body">{slide.description}</p>
 
-                  <GradientButton href={slide.cta.href}>
-                    {slide.cta.label}
+                  <GradientButton asChild>
+                    <Link href={slide.cta.href}>{slide.cta.label}</Link>
                   </GradientButton>
 
                   <ul className="flex flex-col gap-3">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { ExpandableCard } from "@/components/expandable-card";
@@ -330,9 +331,11 @@ export default function DesignSystemPage() {
         >
           <Group title="Botão em degradê">
             <div className="flex flex-wrap items-center gap-6">
-              <GradientButton href="/design-system">Sem ícone</GradientButton>
-              <GradientButton href="/design-system" icon={<ArrowIcon />}>
-                Com ícone
+              <GradientButton asChild>
+                <Link href="/design-system">Sem ícone</Link>
+              </GradientButton>
+              <GradientButton asChild icon={<ArrowIcon />}>
+                <Link href="/design-system">Com ícone</Link>
               </GradientButton>
             </div>
             <Caption>

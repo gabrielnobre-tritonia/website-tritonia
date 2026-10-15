@@ -1,12 +1,13 @@
 import Link from "next/link";
+import { Slot } from "radix-ui";
 import type { ComponentProps, ReactNode } from "react";
 
 type LinkButtonProps = Omit<ComponentProps<typeof Link>, "children"> & {
   children: ReactNode;
 };
 
-type GradientButtonProps = LinkButtonProps & {
-  /** Ícone opcional, exibido à esquerda do texto em 22,5 x 18. */
+type GradientButtonProps = ComponentProps<"button"> & {
+  asChild?: boolean;
   icon?: ReactNode;
 };
 
@@ -15,17 +16,21 @@ const focusRing =
 
 const base = `inline-flex items-center justify-center text-button text-foreground-light ${focusRing}`;
 
-// Botão em degradê
 export function GradientButton({
+  asChild = false,
   icon,
   children,
   className = "",
+  type,
   ...props
 }: GradientButtonProps) {
+  const Comp = asChild ? Slot.Root : "button";
+
   return (
-    <Link
+    <Comp
+      {...(asChild ? {} : { type: type ?? "button" })}
       {...props}
-      className={`${base} from-button-from to-button-to hover:bg-button-to gap-2 rounded-full bg-linear-to-r/srgb px-6 py-3 hover:bg-none ${className}`}
+      className={`${base} from-button-from to-button-to hover:bg-button-to gap-2 rounded-full bg-linear-to-r/srgb px-6 py-3 hover:bg-none disabled:pointer-events-none disabled:opacity-50 ${className}`}
     >
       {icon ? (
         <span
@@ -35,8 +40,8 @@ export function GradientButton({
           {icon}
         </span>
       ) : null}
-      {children}
-    </Link>
+      <Slot.Slottable>{children}</Slot.Slottable>
+    </Comp>
   );
 }
 

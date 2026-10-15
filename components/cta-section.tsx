@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { GradientButton } from "@/components/link-button";
 
@@ -42,8 +43,8 @@ export function CtaSection() {
               </p>
             </div>
 
-            <GradientButton href="/produtos">
-              Conheça nossos produtos
+            <GradientButton asChild>
+              <Link href="/produtos">Conheça nossos produtos</Link>
             </GradientButton>
           </div>
 

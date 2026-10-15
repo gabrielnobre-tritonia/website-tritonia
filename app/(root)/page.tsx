@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AboutSection } from "@/components/about-section";
 import { CtaSection } from "@/components/cta-section";
 import { HeroBackground } from "@/components/hero-background";
@@ -22,7 +23,9 @@ const Home = () => {
             <br className="max-md:hidden" />
             nosso ponto de partida para construir a solução certa.
           </p>
-          <GradientButton href="/contato">Entrar em contato</GradientButton>
+          <GradientButton asChild>
+            <Link href="/contato">Entrar em contato</Link>
+          </GradientButton>
         </div>
       </section>
 
