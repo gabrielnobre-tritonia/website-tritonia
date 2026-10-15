@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { MenuBar } from "@/components/menu-bar";
 import { SiteFooter } from "@/components/site-footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const chakraPetch = Chakra_Petch({
   variable: "--font-chakra-petch",
@@ -45,6 +46,7 @@ export default function RootLayout({
           <MenuBar />
           <main className="flex flex-1 flex-col">{children}</main>
           <SiteFooter />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

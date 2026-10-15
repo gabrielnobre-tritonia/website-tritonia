@@ -1,4 +1,12 @@
-import { Landmark, Monitor, Moon, Sun, type LucideIcon } from "lucide-react";
+import {
+  Landmark,
+  Mail,
+  MessageCircle,
+  Monitor,
+  Moon,
+  Sun,
+  type LucideIcon,
+} from "lucide-react";
 import type { ReactNode } from "react";
 
 export const options: {
@@ -215,6 +223,61 @@ export const menuItems: NavLink[] = [
 ];
 
 export const contact: NavLink = { href: "/contato", label: "Contato" };
+
+/** Dados dos canais de contato: o texto exibido e o link saem destes valores. */
+const whatsappNumber = "+55 (00) 99999-9999"; // placeholder até o número real
+const contactEmail = "diretoria@tritonia.com.br";
+const instagramHandle = "tritonia";
+
+export type ContactChannel = {
+  id: string;
+  /** Texto exibido na linha do card. */
+  label: string;
+  href: string;
+  icon: ReactNode;
+  /** Abre em nova aba. */
+  external: boolean;
+};
+
+/** Ícones provisórios: os SVGs definitivos ainda não foram enviados. */
+export const contactChannels: ContactChannel[] = [
+  {
+    id: "whatsapp",
+    label: whatsappNumber,
+    href: `https://wa.me/${whatsappNumber.replace(/\D/g, "")}`,
+    icon: <MessageCircle className="size-full" strokeWidth={1.75} />,
+    external: true,
+  },
+  {
+    id: "email",
+    label: contactEmail,
+    href: `mailto:${contactEmail}`,
+    icon: <Mail className="size-full" strokeWidth={1.75} />,
+    external: false,
+  },
+  {
+    id: "instagram",
+    label: `@${instagramHandle}`,
+    href: `https://instagram.com/${instagramHandle}`,
+    // O lucide não tem ícones de marca: contorno simples no mesmo estilo.
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.75}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="size-full"
+      >
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+      </svg>
+    ),
+    external: true,
+  },
+];
 
 export type AboutStat = {
   id: string;
