@@ -5,7 +5,7 @@ export function AboutSection() {
   return (
     <section
       id="sobre"
-      className="relative z-10 flex min-h-dvh items-center justify-center overflow-hidden @container bg-background"
+      className="bg-background @container relative z-10 flex min-h-dvh items-center justify-center overflow-hidden"
     >
       {/* Elipse brilho */}
       <div
@@ -33,15 +33,15 @@ export function AboutSection() {
           />
         </div>
 
-        <div className="relative flex w-full max-w-content gap-20 flex-col py-menubar lg:px-20">
+        <div className="max-w-content py-menubar relative flex w-full flex-col gap-20 lg:px-20">
           <div className="flex flex-col gap-5">
-            <p className="font-display text-[14px] font-medium text-foreground">
+            <p className="font-display text-foreground text-[14px] font-medium">
               SOBRE NÓS
             </p>
 
             <div className="relative flex flex-col items-end gap-5">
               <div className="relative w-full">
-                <h2 className="text-h1 relative w-full text-foreground max-sm:text-[1.75rem]">
+                <h2 className="text-h1 text-foreground relative w-full max-sm:text-[1.75rem]">
                   Sistema sob medida começa antes do código.{" "}
                   <br className="max-md:hidden" />
                   Começa{" "}
@@ -58,7 +58,7 @@ export function AboutSection() {
                 />
               </div>
 
-              <p className="text-body relative max-w-[600px] text-foreground max-sm:text-base">
+              <p className="text-body text-foreground relative max-w-[600px] max-sm:text-base">
                 A Tritonia é uma empresa de serviços com foco em tecnologia.
                 Atuamos junto a organizações públicas e privadas, unindo gestão
                 de operações ao desenvolvimento de sistemas, sempre a partir de
@@ -80,12 +80,12 @@ export function AboutSection() {
           </div>
 
           {/* Mesmos tokens do menu bar: vidro no escuro, navy sólido no claro. */}
-          <div className="relative rounded-card border border-menubar-border bg-menubar p-2 shadow-menubar backdrop-blur-menubar">
+          <div className="rounded-card border-menubar-border bg-menubar shadow-menubar backdrop-blur-menubar relative border p-2">
             <ul className="grid grid-cols-1 gap-5 sm:flex lg:flex">
               {aboutStats.map((stat) => (
                 <li
                   key={stat.id}
-                  className="flex flex-col items-center text-center sm:max-lg:last:col-span-2 lg:flex-1 md:not-first:border-l lg:not-first:border-l lg:not-first:border-foreground-light/42 lg:not-first:pl-5"
+                  className="lg:not-first:border-foreground-light/42 flex flex-col items-center text-center sm:max-lg:last:col-span-2 md:not-first:border-l lg:flex-1 lg:not-first:border-l lg:not-first:pl-5"
                 >
                   <span
                     className="font-sans text-[2rem] font-semibold"
@@ -93,7 +93,7 @@ export function AboutSection() {
                   >
                     {stat.title}
                   </span>
-                  <span className="font-sans text-[0.875rem] font-normal text-foreground-light">
+                  <span className="text-foreground-light font-sans text-[0.875rem] font-normal">
                     {stat.subtitle}
                   </span>
                 </li>

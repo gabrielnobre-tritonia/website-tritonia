@@ -7,7 +7,7 @@ export function WhyTritoniaSection() {
   const [{ id: firstId, ...first }, ...rest] = whyCards;
 
   return (
-    <section className="relative z-10 overflow-hidden bg-background py-menubar">
+    <section className="bg-background py-menubar relative z-10 overflow-hidden">
       {/* Elipse de brilho: 672 x 745px, 176px para fora da borda esquerda, centralizada na vertical. */}
       <div
         aria-hidden="true"
@@ -15,8 +15,8 @@ export function WhyTritoniaSection() {
       />
 
       <div className="relative flex w-full justify-center px-(--page-gutter)">
-        <div className="flex w-full max-w-content flex-col gap-10">
-          <div className="flex flex-col gap-6 lg:px-20">
+        <div className="max-w-content flex w-full flex-col gap-10">
+          <div className="flex flex-col gap-5 lg:px-20">
             <h2 className="text-h1 text-foreground">
               Software genérico resolve. <br className="max-md:hidden" />
               Software sob medida{" "}
