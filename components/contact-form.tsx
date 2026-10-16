@@ -66,13 +66,15 @@ export function ContactForm({
   return (
     <div className="rounded-card border-menubar-border bg-menubar text-foreground-light shadow-menubar backdrop-blur-menubar border px-10 py-8">
       <form noValidate aria-label="Formulário de contato" onSubmit={submit}>
-        <FieldGroup className="grid grid-cols-1 gap-x-4 gap-y-5 sm:grid-cols-2">
+        <FieldGroup className="gap-x-4 grid grid-cols-1 gap-y-5 sm:grid-cols-2">
           <Controller
             name="name"
             control={control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={`${baseId}-name`}>Nome</FieldLabel>
+                <FieldLabel htmlFor={`${baseId}-name`} className="font-display">
+                  Nome
+                </FieldLabel>
                 <Input
                   {...field}
                   id={`${baseId}-name`}
@@ -99,7 +101,10 @@ export function ContactForm({
             control={control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={`${baseId}-company`}>
+                <FieldLabel
+                  htmlFor={`${baseId}-company`}
+                  className="font-display"
+                >
                   Empresa/Órgão
                 </FieldLabel>
                 <Input
@@ -128,7 +133,12 @@ export function ContactForm({
             control={control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={`${baseId}-email`}>E-mail</FieldLabel>
+                <FieldLabel
+                  htmlFor={`${baseId}-email`}
+                  className="font-display"
+                >
+                  E-mail
+                </FieldLabel>
                 <Input
                   {...field}
                   id={`${baseId}-email`}
@@ -156,7 +166,10 @@ export function ContactForm({
             control={control}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor={`${baseId}-phone`}>
+                <FieldLabel
+                  htmlFor={`${baseId}-phone`}
+                  className="font-display"
+                >
                   Telefone/WhatsApp
                 </FieldLabel>
                 <Input
@@ -189,7 +202,10 @@ export function ContactForm({
                 data-invalid={fieldState.invalid}
                 className="sm:col-span-2"
               >
-                <FieldLabel htmlFor={`${baseId}-message`}>
+                <FieldLabel
+                  htmlFor={`${baseId}-message`}
+                  className="font-display"
+                >
                   Como podemos te ajudar?
                 </FieldLabel>
                 <Textarea
@@ -215,7 +231,7 @@ export function ContactForm({
             type="submit"
             disabled={isSubmitting}
             icon={<Send className="size-full" strokeWidth={1.75} />}
-            className="justify-self-start sm:col-span-2"
+            className="w-full justify-self-start sm:col-span-2"
           >
             {isSubmitting ? "Enviando…" : "Enviar mensagem"}
           </GradientButton>
