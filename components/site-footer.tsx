@@ -1,3 +1,4 @@
+import { CurrentYear } from "@/components/current-year";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -45,7 +46,7 @@ const columns: FooterColumn[] = [
 
 export function SiteFooter() {
   return (
-    <footer className="flex w-full flex-col gap-12 bg-[#7B7B7B] px-[clamp(16px,calc(15.78vw_-_85px),218px)] py-14 dark:bg-[#1D2833]">
+    <footer className="flex w-full flex-col gap-12 bg-[#d5d5d5] px-[clamp(16px,calc(15.78vw_-_85px),218px)] py-14 dark:bg-[#1D2833]">
       <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
         <Link href="/" className={`self-start justify-self-start ${focusRing}`}>
           <Image
@@ -66,7 +67,7 @@ export function SiteFooter() {
 
         {columns.map((column) => (
           <nav key={column.title} aria-label={column.title}>
-            <h2 className="text-subtitle dark:text-detail mb-5 text-[#F6F6F6]">
+            <h2 className="text-subtitle dark:text-detail text-foreground-accent mb-5">
               {column.title}
             </h2>
             <ul className="flex flex-col gap-3">
@@ -78,7 +79,7 @@ export function SiteFooter() {
                       target: "_blank",
                       rel: "noopener noreferrer",
                     })}
-                    className={`text-button hover:text-foreground-accent inline-block break-words text-[#F6F6F6] ${focusRing}`}
+                    className={`text-button dark:text-foreground-accent text-surface inline-block break-words ${focusRing}`}
                   >
                     {link.label}
                   </Link>
@@ -89,10 +90,11 @@ export function SiteFooter() {
         ))}
       </div>
 
-      <p className="text-body text-[#D0D0D0]">
-        © {new Date().getFullYear()} TRITONIA SOLUCOES EM TECNOLOGIA LTDA.
-        39.279.734/0001-97. Rua Nogueira Acioli, 996, Sala 01 – Fortaleza, Ce -
-        60110-140
+      <p className="text-body dark:text-[#D0D0D0]">
+        © <CurrentYear /> TRITONIA SOLUCOES EM TECNOLOGIA LTDA -
+        39.279.734/0001-97
+        <br />
+        Rua Nogueira Acioli, 996, Sala 01 – Fortaleza, Ce - 60110-140
       </p>
     </footer>
   );
