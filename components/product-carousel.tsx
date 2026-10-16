@@ -63,7 +63,10 @@ export function ProductCarousel() {
 
                   <p className="text-body">{slide.description}</p>
 
-                  <GradientButton asChild>
+                  <GradientButton
+                    asChild
+                    className="[--button-from:var(--palette-orange-light)] [--button-to:var(--palette-orange-dark)]"
+                  >
                     <Link href={slide.cta.href}>{slide.cta.label}</Link>
                   </GradientButton>
 

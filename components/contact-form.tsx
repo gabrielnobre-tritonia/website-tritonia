@@ -66,7 +66,7 @@ export function ContactForm({
   return (
     <div className="rounded-card border-menubar-border bg-menubar text-foreground-light shadow-menubar backdrop-blur-menubar border px-10 py-8">
       <form noValidate aria-label="Formulário de contato" onSubmit={submit}>
-        <FieldGroup className="gap-x-4 grid grid-cols-1 gap-y-5 sm:grid-cols-2">
+        <FieldGroup className="grid grid-cols-1 gap-x-4 gap-y-5 sm:grid-cols-2">
           <Controller
             name="name"
             control={control}
@@ -231,7 +231,7 @@ export function ContactForm({
             type="submit"
             disabled={isSubmitting}
             icon={<Send className="size-full" strokeWidth={1.75} />}
-            className="w-full justify-self-start sm:col-span-2"
+            className="w-full justify-self-start [--button-from:var(--palette-orange-light)] [--button-to:var(--palette-orange-dark)] sm:col-span-2"
           >
             {isSubmitting ? "Enviando…" : "Enviar mensagem"}
           </GradientButton>
