@@ -155,9 +155,7 @@
 
   --container-content: 1208px;
 
-  /* Espaço no topo para o conteúdo começar abaixo do menu bar fixo: 24px de
-     afastamento (top-6) + ~69px de altura da barra + 24px de respiro. Se a
-     altura ou o afastamento do menu bar mudarem, ajustar aqui. */
+  /* Espaço no topo para o conteúdo começar abaixo do menu bar */
   --spacing-menubar: 7.5rem;
 
   --shadow-menubar: var(--menubar-shadow);
@@ -230,23 +228,7 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Entrada do título da faixa laranja da home (components/home-statement.tsx).
-   Ajustes do movimento: duração, atraso, escala inicial e curva, aqui. O ponto
-   de disparo fica no topo de home-statement.tsx. A curva é a easeInOutBack
-   (efeito chicote): os pontos de controle ficam fora de 0 a 1 em y, então a
-   escala recua um pouco no começo, passa de 1 (~5%) perto do fim e volta a 1.
-   Tempos: a animação toda dura 2000ms; a linha 1 vai de 0 a 765ms e a linha 2,
-   de 0 a 2000ms (atraso 0 nas duas). Dois limites da curva: (1) ela recua
-   abaixo do valor inicial no começo (progresso mínimo de -0,058), então
-   `--statement-scale-from` não pode ser menor que ~0.055, senão a escala fica
-   negativa e o texto espelha (com 0.06, o menor valor com folga, a escala
-   mínima no recuo é 0.005, quase um ponto); (2) em ~1440px a primeira linha ocupa 1348px, e o avanço máximo sem
-   passar da borda da janela é ~6,8%, então não aumente os pontos de controle
-   (a easeInOutBack padrão, -0.6 e 1.6, avança 8,9% e corta).
-   Opacidade: as duas linhas começam invisíveis e no menor tamanho. A linha 2 é
-   a mesma animação da linha 1, só com duração maior: o fade é uma fração da
-   duração de cada linha (começa em 19,6% e dura 32,7% dela, ou seja, 150ms e
-   250ms nos 765ms da linha 1, e 392ms e 654ms nos 2000ms da linha 2). */
+/* Especificações de animações */
 :root {
   --statement-duration-1: 765ms;
   --statement-duration-2: 765ms;
@@ -275,8 +257,6 @@ body {
   }
 }
 
-/* Sem `data-state` (servidor, sem JavaScript) e com movimento reduzido, as duas
-   linhas ficam visíveis no tamanho final. */
 @media (prefers-reduced-motion: no-preference) {
   [data-state="pending"] [data-line],
   [data-state="playing"] [data-line] {
@@ -312,16 +292,7 @@ body {
   }
 }
 
-/* Pilha de cards da seção "Soluções" (components/solutions-card-stack.tsx).
-   Só vale com `data-mode="stack"` no wrapper, que o componente põe depois da
-   montagem quando a janela é larga e alta o bastante e não há movimento
-   reduzido; sem ele, os cards ficam em coluna, no fluxo normal. O wrapper tem
-   a altura do percurso de scroll (`--stack-stage-h` + `--stack-travel`, em px,
-   escritas pelo componente), a área fixa (`sticky`) fica a `--stack-top` do
-   topo da janela e os cards viram camadas no mesmo lugar: cada um sobe por
-   `--y` (px, escrito a cada quadro de scroll), e o último, mais abaixo no
-   DOM, fica à frente. Só `transform`. Ajustes (topo, faixa azul, folga de
-   leitura, altura e largura mínimas) são as constantes no topo do componente. */
+/* Empilhamento de cards */
 @media (prefers-reduced-motion: no-preference) {
   [data-stack][data-mode="stack"] {
     height: calc(var(--stack-stage-h) + var(--stack-travel));
@@ -389,5 +360,110 @@ body {
   /* Direção invertida: a luz sai do ponto e a pausa vai para o começo. */
   [data-circuit-light][data-reverse] {
     animation-direction: reverse;
+  }
+}
+
+/* Animação da hero de produtos */
+:root {
+  --products-hero-start: 250ms;
+  --products-hero-in: 900ms;
+  --products-hero-stagger: 100ms;
+  --products-hero-hold: 850ms;
+  --products-hero-out: 380ms;
+  --products-hero-title-offset: 130ms;
+  --products-hero-title-in: 700ms;
+  --products-hero-overshoot: -6%;
+  --products-hero-title-blur: 8px;
+}
+
+[data-hero] {
+  --products-hero-card-off: calc(var(--products-hero-h, 100dvh) / 2 + 100%);
+  --products-hero-title-off: calc(var(--products-hero-h, 100dvh) / -2 - 50%);
+}
+
+[data-hero-cards] {
+  display: none;
+}
+
+@keyframes products-hero-card-in {
+  from {
+    transform: translateY(var(--products-hero-card-off));
+    animation-timing-function: cubic-bezier(0.22, 0.9, 0.3, 1);
+  }
+  72% {
+    transform: translateY(var(--products-hero-overshoot));
+    animation-timing-function: ease-in-out;
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes products-hero-card-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(var(--products-hero-card-off));
+  }
+}
+
+@keyframes products-hero-title-in {
+  from {
+    transform: translateY(var(--products-hero-title-off));
+    filter: blur(var(--products-hero-title-blur));
+  }
+  60% {
+    filter: blur(0);
+  }
+  to {
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  [data-hero] [data-hero-cards] {
+    display: flex;
+  }
+
+  [data-hero="done"] [data-hero-cards] {
+    display: none;
+  }
+
+  [data-hero="idle"] [data-hero-card] {
+    transform: translateY(var(--products-hero-card-off));
+  }
+
+  [data-hero="idle"] [data-hero-title] {
+    transform: translateY(var(--products-hero-title-off));
+  }
+
+  [data-hero="playing"] [data-hero-card] {
+    --products-hero-enter-delay: calc(
+      var(--products-hero-start) + var(--i) * var(--products-hero-stagger)
+    );
+    will-change: transform;
+    animation:
+      products-hero-card-in var(--products-hero-in) ease
+        var(--products-hero-enter-delay) both,
+      products-hero-card-out var(--products-hero-out)
+        cubic-bezier(0.5, 0, 0.9, 0.6)
+        calc(
+          var(--products-hero-enter-delay) + var(--products-hero-in) +
+            var(--products-hero-hold)
+        )
+        forwards;
+  }
+
+  [data-hero="playing"] [data-hero-title] {
+    will-change: transform, filter;
+    animation: products-hero-title-in var(--products-hero-title-in)
+      cubic-bezier(0.2, 0.7, 0.2, 1)
+      calc(
+        var(--products-hero-start) + var(--products-hero-in) +
+          var(--products-hero-hold) + var(--products-hero-title-offset)
+      )
+      both;
   }
 }

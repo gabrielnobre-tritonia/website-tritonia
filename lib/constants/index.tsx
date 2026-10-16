@@ -528,3 +528,43 @@ export const productSlides: ProductSlideData[] = [
     },
   },
 ];
+
+export type ProductsHeroCardData = {
+  id: string;
+  /** Imagem pronta do card (cor, cantos e sombra já inclusos), em `public/`. */
+  src: string;
+  width: number;
+  height: number;
+  /** Ordem de entrada e de saída na sequência: 0 é o primeiro (o da direita). */
+  order: number;
+};
+
+/**
+ * Cards da animação de entrada do hero de `/produtos`, da esquerda para a
+ * direita. A ordem de entrada é a inversa: ciano, laranja e verde. O corpo do
+ * card mede 1552 x 1124 nos três; o do ZAD é mais alto (1230) só porque a
+ * sombra do monitor vaza abaixo dele.
+ */
+export const productsHeroCards: ProductsHeroCardData[] = [
+  {
+    id: "zad",
+    src: "/animation-products/zad.png",
+    width: 1552,
+    height: 1230,
+    order: 2,
+  },
+  {
+    id: "sgvm",
+    src: "/animation-products/sgvm.png",
+    width: 1552,
+    height: 1124,
+    order: 1,
+  },
+  {
+    id: "sigem",
+    src: "/animation-products/sigem.png",
+    width: 1552,
+    height: 1124,
+    order: 0,
+  },
+];
