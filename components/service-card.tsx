@@ -18,7 +18,7 @@ export function ServiceCard({
 }: ServiceCardProps) {
   return (
     <article
-      className="relative h-[380px] w-[1100px] shrink-0 overflow-hidden rounded-card-lg text-foreground-light"
+      className="rounded-card-lg text-foreground-light relative h-[380px] w-[1100px] shrink-0 overflow-hidden"
       style={{ backgroundColor: baseColor }}
     >
       <Image
@@ -31,7 +31,7 @@ export function ServiceCard({
 
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute top-[43px] left-[38px] flex h-[194px] w-[212px] items-center font-display text-[194px] leading-none font-semibold select-none"
+        className="font-display pointer-events-none absolute top-[43px] left-[38px] flex h-[194px] w-[212px] items-center text-[194px] leading-none font-semibold select-none"
         style={{ color: numberColor }}
       >
         {number}
@@ -50,14 +50,14 @@ export function ServiceCard({
               {index > 0 ? (
                 <li
                   aria-hidden="true"
-                  className="h-px w-full bg-foreground-light/42"
+                  className="bg-foreground-light/42 h-px w-full"
                 />
               ) : null}
-              <li className="flex items-center gap-3 text-body">
+              <li className="text-body flex items-center gap-3">
                 {item.icon ? (
                   <span
                     aria-hidden="true"
-                    className="inline-flex shrink-0 items-center justify-center"
+                    className="inline-flex size-8 shrink-0 items-center justify-center"
                   >
                     {item.icon}
                   </span>

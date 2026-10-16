@@ -1,10 +1,20 @@
 import {
+  Building2,
+  ChartLine,
+  ChartNoAxesColumnIncreasing,
+  Combine,
+  Headset,
   Landmark,
   Mail,
   MessageCircle,
   Monitor,
   Moon,
+  Network,
+  Puzzle,
+  RefreshCw,
+  ShieldCheck,
   Sun,
+  UsersRound,
   type LucideIcon,
 } from "lucide-react";
 import type { ReactNode } from "react";
@@ -53,9 +63,18 @@ export const serviceCards: ServiceCardData[] = [
     description:
       "Construímos sistemas, aplicativos e ferramentas sob medida para atender às necessidades específicas da sua operação e do seu negócio.",
     items: [
-      { label: "Soluções sob medida" },
-      { label: "Segurança e confiabilidade" },
-      { label: "Escalabilidade e performance" },
+      {
+        icon: <Puzzle className="size-full" strokeWidth={1.75} />,
+        label: "Soluções sob medida",
+      },
+      {
+        icon: <ShieldCheck className="size-full" strokeWidth={1.75} />,
+        label: "Segurança e confiabilidade",
+      },
+      {
+        icon: <ChartLine className="size-full" strokeWidth={1.75} />,
+        label: "Escalabilidade e performance",
+      },
     ],
   },
   {
@@ -74,9 +93,18 @@ export const serviceCards: ServiceCardData[] = [
     description:
       "Mantemos e evoluímos sistemas existentes, modernizando tecnologias, integrando soluções e garantindo a continuidade da operação.",
     items: [
-      { label: "Manutenção contínua" },
-      { label: "Modernização contínua" },
-      { label: "Integração de sistemas" },
+      {
+        icon: <RefreshCw className="size-full" strokeWidth={1.75} />,
+        label: "Manutenção contínua",
+      },
+      {
+        icon: <Combine className="size-full" strokeWidth={1.75} />,
+        label: "Modernização contínua",
+      },
+      {
+        icon: <Network className="size-full" strokeWidth={1.75} />,
+        label: "Integração de sistemas",
+      },
     ],
   },
   {
@@ -95,9 +123,23 @@ export const serviceCards: ServiceCardData[] = [
     description:
       "Atuamos diretamente na gestão de operações apoiadas por tecnologia, conectando processos, sistemas, usuários e serviços.",
     items: [
-      { label: "Processos eficientes" },
-      { label: "Indicadores e performance" },
-      { label: "Suporte e atendimento" },
+      {
+        icon: <UsersRound className="size-full" strokeWidth={1.75} />,
+        label: "Processos eficientes",
+      },
+      {
+        icon: (
+          <ChartNoAxesColumnIncreasing
+            className="size-full"
+            strokeWidth={1.75}
+          />
+        ),
+        label: "Indicadores e performance",
+      },
+      {
+        icon: <Headset className="size-full" strokeWidth={1.75} />,
+        label: "Suporte e atendimento",
+      },
     ],
   },
 ];
@@ -106,9 +148,7 @@ export type WhyCardData = {
   id: string;
   title: ReactNode;
   subtitle: string;
-  /** Caminho da imagem em `public/`. */
   image: string;
-  /** Cor da barra do topo, como valor CSS direto (não é token da paleta). */
   lineColor: string;
 };
 
@@ -158,22 +198,15 @@ export const whyCards: WhyCardData[] = [
 export type MapLabelData = {
   id: string;
   name: string;
-  /** Posição do pino na caixa do mapa expandido, em % da largura. */
   x: number;
-  /** Posição do pino na caixa do mapa expandido, em % da altura. */
   y: number;
-  /** Deslocamento horizontal do centro do nome em relação ao pino, em px. */
   dx: number;
-  /** Deslocamento vertical do centro do nome em relação ao pino, em px (negativo sobe). */
   dy: number;
 };
 
 export type MapCardData = {
-  /** Texto do card, com as quebras de linha (`<br />`). */
   text: ReactNode;
-  /** Mapa do card recolhido (`public/`). */
   image: string;
-  /** Mapa do card expandido (`public/`). */
   imageExpanded: string;
   labels: MapLabelData[];
 };
@@ -196,7 +229,6 @@ export const whyMapCard: MapCardData = {
 export type StatCardData = {
   value: string;
   unit: string;
-  /** Frase abaixo do número, com as quebras de linha (`<br />`). */
   description: ReactNode;
 };
 
@@ -216,7 +248,7 @@ export type NavLink = {
   label: string;
 };
 
-/** Itens de navegação do menu bar (o contato fica à parte, como botão). */
+/** Itens de navegação do menu bar */
 export const menuItems: NavLink[] = [
   { href: "/", label: "Início" },
   { href: "/produtos", label: "Produtos" },
@@ -229,17 +261,15 @@ const whatsappNumber = "+55 (00) 99999-9999"; // placeholder até o número real
 const contactEmail = "diretoria@tritonia.com.br";
 const instagramHandle = "tritonia";
 
+// INFORMAÇÕES DE CONTATO
 export type ContactChannel = {
   id: string;
-  /** Texto exibido na linha do card. */
   label: string;
   href: string;
   icon: ReactNode;
-  /** Abre em nova aba. */
   external: boolean;
 };
 
-/** Ícones provisórios: os SVGs definitivos ainda não foram enviados. */
 export const contactChannels: ContactChannel[] = [
   {
     id: "whatsapp",
@@ -259,7 +289,6 @@ export const contactChannels: ContactChannel[] = [
     id: "instagram",
     label: `@${instagramHandle}`,
     href: `https://instagram.com/${instagramHandle}`,
-    // O lucide não tem ícones de marca: contorno simples no mesmo estilo.
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -279,11 +308,11 @@ export const contactChannels: ContactChannel[] = [
   },
 ];
 
+// SEÇÃO DO PORQUÊ A TRITONIA
 export type AboutStat = {
   id: string;
   title: string;
   subtitle: string;
-  /** Cor do título, como valor CSS direto (não é token da paleta). */
   color: string;
 };
 
@@ -321,11 +350,11 @@ export const aboutStats: AboutStat[] = [
 ];
 
 export type ProductSlideItem = {
-  /** Caminho do SVG em `public/`. */
   icon: string;
   label: string;
 };
 
+// PRODUTOS
 export type ProductSlideData = {
   id: string;
   badge: {
@@ -388,8 +417,7 @@ export const productSlides: ProductSlideData[] = [
     badge: {
       label: "SETOR PRIVADO",
       color: sectorColors.private,
-      // Provisório: o SVG do badge ainda não foi enviado.
-      icon: <Landmark className="size-full" strokeWidth={1.75} />,
+      icon: <Building2 className="size-full" strokeWidth={1.75} />,
     },
     title: "ZAD - Zona Azul Digital",
     description:
@@ -398,7 +426,6 @@ export const productSlides: ProductSlideData[] = [
       label: "Solicitar demonstração do ZAD",
       href: "/contato",
     },
-    // Provisório: a ordem dos ícones segue o palpite, a confirmar.
     items: [
       {
         icon: "/images-apps/zad/icons/cartao.svg",
@@ -424,8 +451,7 @@ export const productSlides: ProductSlideData[] = [
     badge: {
       label: "SETOR PRIVADO",
       color: sectorColors.private,
-      // Provisório: o SVG do badge ainda não foi enviado.
-      icon: <Landmark className="size-full" strokeWidth={1.75} />,
+      icon: <Building2 className="size-full" strokeWidth={1.75} />,
     },
     title: "SIGEM – Sistema Integrado de Gestão de Estoque e Materiais",
     description:
@@ -434,7 +460,6 @@ export const productSlides: ProductSlideData[] = [
       label: "Solicitar demonstração do SIGEM",
       href: "/contato",
     },
-    // Provisório: a ordem dos ícones segue o palpite, a confirmar.
     items: [
       {
         icon: "/images-apps/sigem/icons/visao.svg",
@@ -460,8 +485,7 @@ export const productSlides: ProductSlideData[] = [
     badge: {
       label: "SETOR PRIVADO",
       color: sectorColors.private,
-      // Provisório: o SVG do badge ainda não foi enviado.
-      icon: <Landmark className="size-full" strokeWidth={1.75} />,
+      icon: <Building2 className="size-full" strokeWidth={1.75} />,
     },
     title: "SGC - Sistema de Gestão de Contratos",
     description:
@@ -470,7 +494,6 @@ export const productSlides: ProductSlideData[] = [
       label: "Solicitar demonstração do SGC",
       href: "/contato",
     },
-    // Provisório: a ordem dos ícones segue o palpite, a confirmar.
     items: [
       {
         icon: "/images-apps/sgc/icons/medicoes.svg",
@@ -496,8 +519,7 @@ export const productSlides: ProductSlideData[] = [
     badge: {
       label: "SETOR PRIVADO",
       color: sectorColors.private,
-      // Provisório: o SVG do badge ainda não foi enviado.
-      icon: <Landmark className="size-full" strokeWidth={1.75} />,
+      icon: <Building2 className="size-full" strokeWidth={1.75} />,
     },
     title: "SGF - Sistema de Gestão de Financeira",
     description:
@@ -506,7 +528,6 @@ export const productSlides: ProductSlideData[] = [
       label: "Solicitar demonstração do SGF",
       href: "/contato",
     },
-    // Provisório: a ordem dos ícones segue o palpite, a confirmar.
     items: [
       {
         icon: "/images-apps/sgf/icons/painel.svg",
@@ -539,12 +560,7 @@ export type ProductsHeroCardData = {
   order: number;
 };
 
-/**
- * Cards da animação de entrada do hero de `/produtos`, da esquerda para a
- * direita. A ordem de entrada é a inversa: ciano, laranja e verde. O corpo do
- * card mede 1552 x 1124 nos três; o do ZAD é mais alto (1230) só porque a
- * sombra do monitor vaza abaixo dele.
- */
+// Cards de animação de Produtos
 export const productsHeroCards: ProductsHeroCardData[] = [
   {
     id: "zad",
