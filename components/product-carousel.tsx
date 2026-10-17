@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { CarouselDots } from "@/components/carousel-dots";
 import { GradientButton } from "@/components/link-button";
 import {
   Carousel,
@@ -15,7 +16,7 @@ import { productSlides } from "@/lib/constants";
    ou seja, -53px a partir da borda do card. Mesmo fundo do card, para aparecerem
    nos dois temas; o contorno de foco é o do projeto. */
 const arrowClass =
-  "size-10 border-border bg-surface text-foreground-light hover:bg-surface/80 hover:text-foreground-light focus-visible:border-border focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-detail [&_svg:not([class*='size-'])]:size-5";
+  "size-10 cursor-pointer border-border bg-surface text-foreground-light hover:bg-surface/80 hover:text-foreground-light focus-visible:border-border focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-detail [&_svg:not([class*='size-'])]:size-5";
 
 /** Carrossel de produtos: um card de 400px de altura mínima por sistema. Todo o conteúdo vem de `productSlides`. */
 export function ProductCarousel() {
@@ -109,6 +110,8 @@ export function ProductCarousel() {
 
         <CarouselPrevious className={`${arrowClass} -left-[53px]`} />
         <CarouselNext className={`${arrowClass} -right-[53px]`} />
+
+        <CarouselDots className="absolute bottom-6 left-1/2 -translate-x-1/2" />
       </Carousel>
     </section>
   );
