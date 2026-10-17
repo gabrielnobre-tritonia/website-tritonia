@@ -35,9 +35,7 @@ export function MenuBar() {
 
       <div className="flex items-center max-lg:hidden">
         <ContactButton href={contact.href}>{contact.label}</ContactButton>
-        {/* Entre 1024px e 1319px fica dentro da barra, ao lado do contato;
-            a partir de 1320px, fora da barra, à direita. */}
-        <ThemeSwitcher className="ml-2 min-[1320px]:absolute min-[1320px]:top-1/2 min-[1320px]:left-full min-[1320px]:ml-4 min-[1320px]:-translate-y-1/2" />
+        <ThemeSwitcher className="ml-2" />
       </div>
 
       <MobileMenu items={menuItems} contact={contact} />

@@ -67,7 +67,7 @@ export function SiteFooter() {
 
         {columns.map((column) => (
           <nav key={column.title} aria-label={column.title}>
-            <h2 className="text-subtitle dark:text-detail text-foreground-accent mb-5">
+            <h2 className="text-foreground-accent font-display mb-5 text-2xl">
               {column.title}
             </h2>
             <ul className="flex flex-col gap-3">
@@ -79,7 +79,7 @@ export function SiteFooter() {
                       target: "_blank",
                       rel: "noopener noreferrer",
                     })}
-                    className={`text-button dark:text-foreground-accent text-surface inline-block break-words ${focusRing}`}
+                    className={`text-button hover:text-foreground-muted dark:text-foreground text-surface inline-block break-words ${focusRing}`}
                   >
                     {link.label}
                   </Link>
