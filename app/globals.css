@@ -40,9 +40,7 @@
   --menubutton-background: rgb(255 255 255 / 0.1);
 }
 
-/* Tokens que os componentes do shadcn/ui esperam, ligados à nossa paleta.
-   Só existem os que os componentes em uso consomem; ao adicionar outro
-   componente, conferir se ele precisa de mais algum. */
+/* Tokens dos components shadcn */
 :root {
   --popover-foreground: var(--foreground-light);
   --muted-foreground: var(--foreground-muted);
