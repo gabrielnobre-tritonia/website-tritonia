@@ -33,7 +33,7 @@ export function MobileMenu({ items, contact }: MobileMenuProps) {
         <button
           type="button"
           aria-label="Abrir menu"
-          className="flex size-11 shrink-0 items-center justify-center rounded-full bg-menubutton text-foreground-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-detail lg:hidden"
+          className="bg-menubutton text-foreground-light focus-visible:outline-detail flex size-11 shrink-0 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 lg:hidden"
         >
           <Menu aria-hidden="true" className="size-6" />
         </button>
@@ -48,7 +48,7 @@ export function MobileMenu({ items, contact }: MobileMenuProps) {
           <SheetClose asChild>
             <Link
               href="/"
-              className="w-fit focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-detail"
+              className="focus-visible:outline-detail w-fit focus-visible:outline-2 focus-visible:outline-offset-2"
             >
               <Image
                 src="/logos/logo-menu.png"
