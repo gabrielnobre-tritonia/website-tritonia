@@ -1,4 +1,5 @@
 import { ExpandableCard } from "@/components/expandable-card";
+import { ExpandableCardGroup } from "@/components/expandable-card-group";
 import { MapCard } from "@/components/map-card";
 import { StatCard } from "@/components/stat-card";
 import { whyCards, whyMapCard, whyStatCard } from "@/lib/constants";
@@ -31,19 +32,29 @@ export function WhyTritoniaSection() {
           </div>
 
           {/* Fileira de quatro colunas, centralizada: a linha expandida (1400px) passa dos 1208px do container. */}
-          <div className="flex items-start justify-center gap-4">
-            <ExpandableCard key={firstId} {...first} />
+          {/* No mobile vira uma grade de duas colunas: os quadrados lado a lado
+              (ordem 1 e 2) e, abaixo, os cards em acordeão, um por linha (ordem 3). */}
+          <ExpandableCardGroup className="flex items-start justify-center gap-4 max-md:grid max-md:grid-cols-2">
+            <ExpandableCard
+              key={firstId}
+              {...first}
+              className="max-md:order-3 max-md:col-span-2"
+            />
 
-            {/* Coluna dos quadrados: 488px de altura, corta o que for empurrado para baixo. */}
-            <div className="flex h-[488px] shrink-0 flex-col items-center gap-4 overflow-hidden">
-              <MapCard {...whyMapCard} />
-              <StatCard {...whyStatCard} />
+            {/* Coluna dos quadrados: 488px de altura, corta o que for empurrado para baixo. No mobile some (`contents`) e os quadrados entram na grade. */}
+            <div className="flex h-[488px] shrink-0 flex-col items-center gap-4 overflow-hidden max-md:contents">
+              <MapCard {...whyMapCard} className="max-md:order-1" />
+              <StatCard {...whyStatCard} className="max-md:order-2" />
             </div>
 
             {rest.map(({ id, ...card }) => (
-              <ExpandableCard key={id} {...card} />
+              <ExpandableCard
+                key={id}
+                {...card}
+                className="max-md:order-3 max-md:col-span-2"
+              />
             ))}
-          </div>
+          </ExpandableCardGroup>
         </div>
       </div>
     </section>

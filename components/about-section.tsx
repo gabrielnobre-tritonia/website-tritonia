@@ -42,8 +42,8 @@ export function AboutSection() {
             <div className="relative flex flex-col items-end gap-5">
               <div className="relative w-full">
                 <h2 className="text-h1 text-foreground relative w-full max-sm:text-[1.75rem]">
-                  Sistema sob medida começa antes do código.{" "}
-                  <br className="max-md:hidden" />
+                  Sistema sob medida <br className="lg:hidden" /> começa antes
+                  do código. <br className="max-md:hidden" />
                   Começa{" "}
                   <span className="text-background-accent">
                     entendendo o seu problema.
@@ -58,18 +58,25 @@ export function AboutSection() {
                 />
               </div>
 
-              <p className="text-body text-foreground relative max-w-[600px] max-sm:text-base">
-                A Tritonia é uma empresa de serviços com foco em tecnologia.
-                Atuamos junto a organizações públicas e privadas, unindo gestão
-                de operações ao desenvolvimento de sistemas, sempre a partir de
-                um problema real. Nosso trabalho se apoia em três frentes:{" "}
-                <span className="font-extrabold">
-                  engenharia de software, entendimento de negócio e proximidade
-                  com quem usa nossas soluções.
-                </span>{" "}
-                O resultado são sistemas sob medida para a operação que você
-                tem, não para uma versão genérica dela.
-              </p>
+              <div className="text-body text-foreground relative flex max-w-[600px] flex-col gap-4 max-sm:text-base">
+                <p>
+                  A Tritonia é uma empresa de serviços com foco em tecnologia.
+                  Atuamos junto a organizações públicas e privadas, unindo
+                  gestão de operações ao desenvolvimento de sistemas, sempre a
+                  partir de um problema real. <br className="lg:hidden" />
+                </p>
+                <p>
+                  Nosso trabalho se apoia em três frentes:{" "}
+                  <span className="font-extrabold">
+                    engenharia de software, entendimento de negócio e
+                    proximidade com quem usa nossas soluções.
+                  </span>{" "}
+                </p>
+                <p>
+                  O resultado são sistemas sob medida para a operação que você
+                  tem, não para uma versão genérica dela.
+                </p>
+              </div>
               <CircuitLine
                 lineColor="#0fd298"
                 lightColor="var(--circuit-light-green)"
@@ -81,14 +88,15 @@ export function AboutSection() {
 
           {/* Mesmos tokens do menu bar: vidro no escuro, navy sólido no claro. */}
           <div className="rounded-card border-menubar-border bg-menubar shadow-menubar backdrop-blur-menubar relative border p-2">
-            <ul className="grid grid-cols-1 gap-5 sm:flex lg:flex">
+            {/* Abaixo de `md`: grade de 2 colunas com divisórias em cruz, e o último item ocupa a linha de baixo, com número e texto lado a lado. */}
+            <ul className="grid grid-cols-2 gap-5 max-md:gap-0 md:flex">
               {aboutStats.map((stat) => (
                 <li
                   key={stat.id}
-                  className="lg:not-first:border-foreground-light/42 flex flex-col items-center text-center sm:max-lg:last:col-span-2 md:not-first:border-l lg:flex-1 lg:not-first:border-l lg:not-first:pl-5"
+                  className="lg:not-first:border-foreground-light/42 max-md:border-foreground-light/42 flex flex-col items-center text-center max-md:items-start max-md:p-4 max-md:text-left max-md:last:col-span-2 max-md:last:flex-row max-md:last:items-center max-md:last:gap-3 max-md:even:border-l max-md:nth-[n+3]:border-t md:not-first:border-l lg:flex-1 lg:not-first:border-l lg:not-first:pl-5"
                 >
                   <span
-                    className="font-sans text-[2rem] font-semibold"
+                    className="font-sans text-[2rem] font-semibold max-md:text-[1.75rem] max-md:leading-tight"
                     style={{ color: stat.color }}
                   >
                     {stat.title}

@@ -26,17 +26,19 @@ export function StatCard({
   return (
     <div
       className={cn(
-        "flex h-[236px] w-[239px] shrink-0 flex-col items-center justify-center rounded-[10px] bg-card-orange px-4 text-center text-white",
+        "bg-card-orange flex h-[236px] w-[239px] shrink-0 flex-col items-center justify-center rounded-[10px] px-4 text-center text-white max-md:aspect-[239/236] max-md:h-auto max-md:w-full max-md:px-2",
         className,
       )}
     >
-      <p className="font-display text-5xl leading-none font-semibold">
+      <p className="font-display text-5xl leading-none font-semibold max-md:text-4xl">
         {value}
       </p>
-      <p className="mt-1 font-display text-xl leading-tight font-medium">
+      <p className="font-display mt-1 text-xl leading-tight font-medium max-md:text-base">
         {unit}
       </p>
-      <p className="mt-3 font-sans text-base leading-snug">{description}</p>
+      <p className="mt-3 font-sans text-base leading-snug max-md:mt-2 max-md:text-xs">
+        {description}
+      </p>
     </div>
   );
 }

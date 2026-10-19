@@ -112,7 +112,7 @@ export const serviceCards: ServiceCardData[] = [
     baseColor: "var(--card-green)",
     background: "/backgrounds/card-bg-green.svg",
     number: "03",
-    numberColor: "#079269",
+    numberColor: "#1fa87f",
     title: (
       <>
         Gestão de <br />
@@ -157,7 +157,7 @@ export const whyCards: WhyCardData[] = [
     id: "atendimento-direto",
     title: (
       <>
-        Atendimento direto, <br />
+        Atendimento direto, <br className="max-md:hidden" />
         sem intermediário
       </>
     ),
@@ -170,8 +170,8 @@ export const whyCards: WhyCardData[] = [
     id: "flexibilidade-setor-publico-e-privado",
     title: (
       <>
-        Flexibilidade para <br />
-        setor público e <br />
+        Flexibilidade para <br className="max-md:hidden" />
+        setor público e <br className="max-md:hidden" />
         privado
       </>
     ),
@@ -184,7 +184,7 @@ export const whyCards: WhyCardData[] = [
     id: "evolucao-continua",
     title: (
       <>
-        Evolução contínua <br />
+        Evolução contínua <br className="max-md:hidden" />
         do sistema
       </>
     ),

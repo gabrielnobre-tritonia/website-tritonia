@@ -44,29 +44,29 @@ export function MapCard({
     <article
       tabIndex={0}
       className={cn(
-        "group relative h-[236px] w-[239px] shrink-0 overflow-hidden rounded-[10px] bg-card-cyan transition-[width,height] duration-500 ease-out hover:h-[488px] hover:w-[635px] focus:h-[488px] focus:w-[635px] focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-detail motion-reduce:transition-none",
+        "group bg-card-cyan focus-visible:outline-detail relative h-[236px] w-[239px] shrink-0 overflow-hidden rounded-[10px] transition-[width,height] duration-500 ease-out focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-solid motion-reduce:transition-none max-md:aspect-[239/236] max-md:h-auto max-md:w-full md:hover:h-[488px] md:hover:w-[635px] md:focus:h-[488px] md:focus:w-[635px]",
         className,
       )}
     >
-      <div className="pointer-events-none absolute top-[14px] -right-[20px] h-[205px] w-[153px] transition-[width,height,top,right] duration-500 ease-out group-hover:top-[12px] group-hover:-right-[30px] group-hover:h-[490px] group-hover:w-[366px] group-focus:top-[12px] group-focus:-right-[30px] group-focus:h-[490px] group-focus:w-[366px] motion-reduce:transition-none">
+      <div className="pointer-events-none absolute top-[14px] -right-[20px] h-[205px] w-[153px] transition-[width,height,top,right] duration-500 ease-out motion-reduce:transition-none max-md:top-[6%] max-md:-right-[8%] max-md:h-[54%] max-md:w-[58%] md:group-hover:top-[12px] md:group-hover:-right-[30px] md:group-hover:h-[490px] md:group-hover:w-[366px] md:group-focus:top-[12px] md:group-focus:-right-[30px] md:group-focus:h-[490px] md:group-focus:w-[366px]">
         <div aria-hidden="true" className="absolute inset-0">
           <Image
             src={image}
             alt=""
             fill
             sizes="153px"
-            className="object-contain transition-opacity duration-500 ease-out select-none group-hover:opacity-0 group-focus:opacity-0 motion-reduce:transition-none"
+            className="object-contain transition-opacity duration-500 ease-out select-none motion-reduce:transition-none md:group-hover:opacity-0 md:group-focus:opacity-0"
           />
           <Image
             src={imageExpanded}
             alt=""
             fill
             sizes="366px"
-            className="object-contain opacity-0 transition-opacity duration-500 ease-out select-none group-hover:opacity-100 group-focus:opacity-100 motion-reduce:transition-none"
+            className="object-contain opacity-0 transition-opacity duration-500 ease-out select-none motion-reduce:transition-none md:group-hover:opacity-100 md:group-focus:opacity-100"
           />
         </div>
 
-        <ul className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:delay-200 group-focus:opacity-100 group-focus:delay-200 motion-reduce:transition-none motion-reduce:delay-0">
+        <ul className="absolute inset-0 opacity-0 transition-opacity duration-300 motion-reduce:transition-none motion-reduce:delay-0 md:group-hover:opacity-100 md:group-hover:delay-200 md:group-focus:opacity-100 md:group-focus:delay-200">
           {labels.map(({ id, name, x, y, dx, dy }) => (
             <li
               key={id}
@@ -91,7 +91,7 @@ export function MapCard({
         </ul>
       </div>
 
-      <p className="absolute top-[134px] left-4 font-display text-[1.5rem] leading-[1.2] font-medium text-white transition-[top,left] duration-500 ease-out group-hover:top-[152px] group-hover:left-10 group-focus:top-[152px] group-focus:left-10 motion-reduce:transition-none">
+      <p className="font-display absolute top-[134px] left-4 text-[1.5rem] leading-[1.2] font-medium text-white transition-[top,left] duration-500 ease-out motion-reduce:transition-none max-md:top-auto max-md:bottom-3 max-md:left-3 max-md:text-lg md:group-hover:top-[152px] md:group-hover:left-10 md:group-focus:top-[152px] md:group-focus:left-10">
         {text}
       </p>
     </article>
