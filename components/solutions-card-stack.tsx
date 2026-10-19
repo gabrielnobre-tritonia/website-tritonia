@@ -199,10 +199,14 @@ export function SolutionsCardStack({ header, cards }: SolutionsCardStackProps) {
         <div
           ref={cardsRef}
           data-stack-cards=""
-          className="flex flex-col items-center gap-10"
+          className="flex flex-col items-center gap-10 max-md:-mx-(--page-gutter) max-md:snap-x max-md:snap-mandatory max-md:scroll-px-(--page-gutter) max-md:[scrollbar-width:none] max-md:flex-row max-md:items-stretch max-md:gap-4 max-md:overflow-x-auto max-md:px-(--page-gutter) max-md:[&::-webkit-scrollbar]:hidden"
         >
           {cards.map(({ id, card }) => (
-            <div key={id} data-stack-layer="" className="flex justify-center">
+            <div
+              key={id}
+              data-stack-layer=""
+              className="flex w-full justify-center max-md:w-[88%] max-md:max-w-[480px] max-md:shrink-0 max-md:snap-start"
+            >
               {card}
             </div>
           ))}

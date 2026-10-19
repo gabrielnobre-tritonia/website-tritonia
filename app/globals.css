@@ -169,6 +169,7 @@
   --breakpoint-2xs: 25rem; /* 400px */
   --breakpoint-xs: 30rem; /* 480px */
   --breakpoint-wide: 87.5rem; /* 1400px */
+  --breakpoint-stack: 69.5rem; /* 1112px: MIN_WIDTH da pilha de cards (solutions-card-stack.tsx) */
 }
 
 /* Estilos de texto. Cada classe aplica família, tamanho, peso, linha e espaçamento. */
