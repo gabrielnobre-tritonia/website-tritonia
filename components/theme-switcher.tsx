@@ -41,7 +41,7 @@ export function ThemeSwitcher({ className = "" }: { className?: string }) {
           variant="ghost"
           size="icon"
           aria-label={`Tema: ${current.label}`}
-          className={`text-foreground-muted hover:bg-transparent aria-expanded:bg-transparent dark:hover:bg-transparent focus-visible:border-transparent focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-detail ${className}`}
+          className={`text-foreground-muted focus-visible:outline-detail hover:bg-transparent focus-visible:border-transparent focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 aria-expanded:bg-transparent dark:hover:bg-transparent ${className}`}
         >
           <CurrentIcon aria-hidden="true" className="size-5" />
         </Button>
@@ -50,7 +50,7 @@ export function ThemeSwitcher({ className = "" }: { className?: string }) {
       <DropdownMenuContent
         align="end"
         sideOffset={8}
-        className="w-auto min-w-36 rounded-card bg-popover p-1 ring-0"
+        className="rounded-card bg-popover w-auto min-w-36 p-1 ring-0"
       >
         <DropdownMenuRadioGroup
           value={mounted ? theme : undefined}
@@ -60,7 +60,7 @@ export function ThemeSwitcher({ className = "" }: { className?: string }) {
             <DropdownMenuRadioItem
               key={value}
               value={value}
-              className="rounded-menu-item px-3 py-2 text-button text-foreground-muted data-[state=checked]:text-foreground-accent focus:data-[state=checked]:text-foreground-accent"
+              className="rounded-menu-item text-button text-foreground-muted data-[state=checked]:text-foreground-accent focus:data-[state=checked]:text-foreground-accent px-3 py-2"
             >
               <Icon aria-hidden="true" />
               {label}
