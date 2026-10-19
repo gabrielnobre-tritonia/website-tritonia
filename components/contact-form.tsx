@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import type { ContactResult } from "@/lib/actions/form.actions";
 import {
   contactSchema,
   type ContactFormValues,
@@ -26,15 +27,14 @@ const defaultValues: ContactFormValues = {
   email: "",
   phone: "",
   message: "",
+  website: "",
 };
 
 type ContactFormProps = {
-  onSubmit?: (values: ContactFormValues) => Promise<void>;
+  onSubmit: (values: ContactFormValues) => Promise<ContactResult>;
 };
 
-export function ContactForm({
-  onSubmit: deliver = async () => {},
-}: ContactFormProps) {
+export function ContactForm({ onSubmit }: ContactFormProps) {
   const baseId = useId();
 
   const {
@@ -49,16 +49,16 @@ export function ContactForm({
   });
 
   const submit = handleSubmit(async (values) => {
-    try {
-      await deliver(values);
-    } catch {
-      toast.error("Não foi possível enviar sua mensagem.", {
-        description: "Tente novamente em instantes.",
-      });
+    const res = await onSubmit(values);
+    if (!res.success) {
+      // toast.error("Não foi possível enviar sua mensagem.", {
+      //   description: "Tente novamente em instantes.",
+      // });
+      toast.error(res.message);
       return;
     }
     reset();
-    toast.success("Mensagem enviada!", {
+    toast.success(res.message, {
       description: "Obrigado por falar com a Tritonia.",
     });
   });
@@ -226,6 +226,29 @@ export function ContactForm({
               </Field>
             )}
           />
+
+          {/* Campo-armadilha (honeypot): fora da tela, sem foco, sem leitura por leitor de tela e sem autopreenchimento. Robôs o preenchem; o servidor, então, ignora o envio. */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-[9999px] h-0 w-0 overflow-hidden"
+          >
+            <Controller
+              name="website"
+              control={control}
+              render={({ field }) => (
+                <label>
+                  Não preencha este campo
+                  <input
+                    {...field}
+                    value={field.value ?? ""}
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </label>
+              )}
+            />
+          </div>
 
           <GradientButton
             type="submit"

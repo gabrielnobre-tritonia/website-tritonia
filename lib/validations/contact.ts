@@ -61,6 +61,11 @@ export const contactSchema = z.object({
     .min(1, "Conte como podemos ajudar.")
     .min(10, "Descreva um pouco mais, com ao menos 10 caracteres.")
     .max(contactLimits.message, tooLong("A mensagem", contactLimits.message)),
+  /**
+   * Campo-armadilha (honeypot): invisível no formulário, então uma pessoa nunca o
+   * preenche. Se vier com algum texto, o envio é de um robô e o servidor o ignora.
+   */
+  website: z.string().max(200).optional(),
 });
 
 export type ContactFormValues = z.infer<typeof contactSchema>;

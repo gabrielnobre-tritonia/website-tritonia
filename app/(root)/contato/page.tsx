@@ -1,3 +1,4 @@
+import { sendContactMessage } from "@/lib/actions/form.actions";
 import { ContactForm } from "@/components/contact-form";
 import { HeroBackground } from "@/components/hero-background";
 import { contactChannels } from "@/lib/constants";
@@ -43,7 +44,7 @@ const Contato = () => {
             </div>
           </div>
 
-          <ContactForm />
+          <ContactForm onSubmit={sendContactMessage} />
         </div>
       </div>
     </section>
