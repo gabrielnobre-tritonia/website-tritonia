@@ -35,7 +35,7 @@ export function ThemeOptions({ className = "" }: { className?: string }) {
             aria-pressed={selected}
             onClick={() => setTheme(value)}
             className={`flex items-center gap-2 rounded-menu-item px-3 py-2 text-button hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-detail ${
-              selected ? "text-foreground-accent" : "text-foreground-muted"
+              selected ? "text-foreground-accent" : "text-foreground-light"
             }`}
           >
             <Icon aria-hidden="true" className="size-4" />

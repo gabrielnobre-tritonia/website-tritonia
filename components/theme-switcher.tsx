@@ -41,7 +41,7 @@ export function ThemeSwitcher({ className = "" }: { className?: string }) {
           variant="ghost"
           size="icon"
           aria-label={`Tema: ${current.label}`}
-          className={`text-foreground-muted focus-visible:outline-detail hover:bg-transparent focus-visible:border-transparent focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 aria-expanded:bg-transparent dark:hover:bg-transparent ${className}`}
+          className={`text-foreground-light focus-visible:outline-detail hover:bg-transparent hover:text-foreground-accent focus-visible:border-transparent focus-visible:ring-0 focus-visible:outline-2 focus-visible:outline-offset-2 aria-expanded:bg-transparent aria-expanded:text-foreground-accent dark:hover:bg-transparent ${className}`}
         >
           <CurrentIcon aria-hidden="true" className="size-5" />
         </Button>
