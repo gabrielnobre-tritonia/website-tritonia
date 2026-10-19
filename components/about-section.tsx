@@ -54,7 +54,7 @@ export function AboutSection() {
                   lineColor="var(--palette-orange)"
                   lightColor="var(--circuit-light-orange)"
                   delay="0s"
-                  className="absolute top-[calc(100%+4px)] left-[calc(50%-50cqw)] w-[min(40cqw,150px)] lg:top-[calc(100%+14px)] lg:left-[calc(50%-48.85cqw)] lg:w-[25.8cqw]"
+                  className="absolute top-[calc(100%+360px)] left-[calc(50%-50cqw)] w-[min(40cqw,150px)] lg:top-[calc(100%+14px)] lg:left-[calc(50%-48.85cqw)] lg:w-[25.8cqw]"
                 />
               </div>
 
