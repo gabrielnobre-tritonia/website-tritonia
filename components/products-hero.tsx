@@ -148,8 +148,11 @@ export function ProductsHero() {
       >
         <h1 className="text-headline text-foreground max-lg:text-[3.5rem] max-sm:text-[2.5rem]">
           Soluções que já{" "}
-          <span className="text-foreground-accent">transformam</span>
-          <br className="max-md:hidden" />
+          <span className="text-foreground-accent">
+            <br />
+            transformam
+          </span>{" "}
+          <br className="lg:hidden" />
           operações reais.
         </h1>
         <p className="text-subheadline text-foreground-muted max-sm:text-base">
