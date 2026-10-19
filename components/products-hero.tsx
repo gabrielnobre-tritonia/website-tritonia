@@ -13,20 +13,6 @@ const PLAY_QUERY =
 /** Tempo máximo de espera pelas imagens dos cards antes de começar a sequência. */
 const PRELOAD_LIMIT_MS = 3000;
 
-/**
- * Hero de `/produtos` com a animação de entrada: três cards sobem, ficam à vista
- * e descem, e o título entra por cima (veja o bloco "Animação de entrada do hero
- * de /produtos" em `app/globals.css`, que tem os tempos, os atrasos e a lógica
- * das posições).
- *
- * Os estados vêm de `data-hero` na seção: `idle` (o que o servidor renderiza:
- * título e cards fora da área visível), `playing` e `done`. O JavaScript só
- * decide se a sequência roda, espera as imagens carregarem, mede a altura do hero
- * e marca o estado; as animações são CSS. Marcar o mesmo estado duas vezes não
- * reinicia a animação, então re-renderizações e o StrictMode não a recomeçam.
- * Sem a media query (mobile ou movimento reduzido), o estado vai direto para
- * `done`: título parado no lugar e sem cards.
- */
 export function ProductsHero() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);

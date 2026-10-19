@@ -30,17 +30,6 @@ const splitTitle = (title: string) => {
     : { name: title, separator: "", rest: "" };
 };
 
-/**
- * Carrossel de produtos, em três tamanhos:
- * - a partir de `carousel` (1432px): um card único de 1300 x 600px, com as setas
- *   nas margens e os pontos dentro dele;
- * - de `md` (768px) até `carousel`: um card por vez, na largura da página (até
- *   1000px) e centralizado, com texto à esquerda e imagem à direita;
- * - abaixo de `md`: cada produto é um card vertical (imagem, selo, título,
- *   descrição, itens e botão) de 95% da largura, com o próximo aparecendo na
- *   borda direita.
- * Abaixo de `carousel`, as setas e os pontos ficam embaixo, fora dos cards. Todo o conteúdo vem de `productSlides`.
- */
 export function ProductCarousel() {
   return (
     <section className="bg-background max-carousel:py-12 relative flex items-center justify-center overflow-hidden py-20">
