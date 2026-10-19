@@ -13,17 +13,21 @@ const Contato = () => {
 
       <div className="py-menubar relative mx-auto w-full max-w-[1208px] px-(--page-gutter)">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
-          <div className="flex max-w-[400px] flex-col gap-6">
-            <h1 className="text-h1 text-foreground">
-              Toda boa solução começa por uma{" "}
-              <span className="text-foreground-accent">boa conversa.</span>
-            </h1>
-            <p className="text-subheadline text-foreground-muted">
-              Conte pra gente o que sua operação precisa. A partir daí,
-              entendemos o contexto e vemos como podemos ajudar.
-            </p>
+          {/* Abaixo de lg o wrapper some (contents) e os três blocos viram
+              itens do grid, na ordem: texto, formulário, canais. */}
+          <div className="contents lg:flex lg:flex-col lg:gap-6">
+            <div className="flex max-w-100 flex-col gap-6">
+              <h1 className="text-h1 text-foreground">
+                Toda boa solução começa por uma{" "}
+                <span className="text-foreground-accent">boa conversa.</span>
+              </h1>
+              <p className="text-subheadline text-foreground-muted">
+                Conte pra gente o que sua operação precisa. A partir daí,
+                entendemos o contexto e vemos como podemos ajudar.
+              </p>
+            </div>
 
-            <div className="rounded-card text-foreground-light flex flex-col items-start gap-6 bg-[#283B4D] px-10 py-8 text-left">
+            <div className="rounded-card text-foreground-light order-3 flex max-w-100 flex-col items-start gap-6 bg-[#283B4D] px-10 py-8 text-left lg:order-0">
               <h2 className="text-body font-semibold">Outros canais</h2>
               {contactChannels.map((channel) => (
                 <a
@@ -44,7 +48,9 @@ const Contato = () => {
             </div>
           </div>
 
-          <ContactForm onSubmit={sendContactMessage} />
+          <div className="order-2 lg:order-0">
+            <ContactForm onSubmit={sendContactMessage} />
+          </div>
         </div>
       </div>
     </section>
