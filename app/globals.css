@@ -169,6 +169,7 @@
   --breakpoint-2xs: 25rem; /* 400px */
   --breakpoint-xs: 30rem; /* 480px */
   --breakpoint-wide: 87.5rem; /* 1400px */
+  --breakpoint-carousel: 89.5rem; /* 1432px: card de 1300px do carrossel de produtos + setas de 66px nas margens (product-carousel.tsx) */
   --breakpoint-stack: 69.5rem; /* 1112px: MIN_WIDTH da pilha de cards (solutions-card-stack.tsx) */
 }
 
