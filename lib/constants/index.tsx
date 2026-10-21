@@ -392,9 +392,9 @@ export const productSlides: ProductSlideData[] = [
   {
     id: "zad",
     badge: {
-      label: "SETOR PRIVADO",
-      color: sectorColors.private,
-      icon: <Building2 className="size-full" strokeWidth={1.75} />,
+      label: "SETOR PÚBLICO",
+      color: sectorColors.public,
+      icon: <Landmark className="size-full" strokeWidth={1.75} />,
     },
     title: "ZAD - Zona Azul Digital",
     description:
@@ -498,7 +498,7 @@ export const productSlides: ProductSlideData[] = [
       color: sectorColors.private,
       icon: <Building2 className="size-full" strokeWidth={1.75} />,
     },
-    title: "SGF - Sistema de Gestão de Financeira",
+    title: "SGF - Sistema de Gestão Financeira",
     description:
       "Do lançamento à confirmação de pagamento, o SGF dá rastro e governança a cada centavo - com fluxo de aprovação, centros de custo e visão clara de para onde o dinheiro está indo.",
     cta: {
