@@ -93,8 +93,6 @@ export function SiteFooter() {
       <p className="text-body dark:text-[#D0D0D0]">
         © <CurrentYear /> TRITONIA SOLUCOES EM TECNOLOGIA LTDA -
         39.279.734/0001-97
-        <br />
-        Rua Nogueira Acioli, 996, Sala 01 – Fortaleza, Ce - 60110-140
       </p>
     </footer>
   );
